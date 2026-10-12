@@ -1,5 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { ArrowUpRight, Download, Mail, MapPin, Phone } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { ArrowUpRight, Download, FileUp, Mail, MapPin, Phone } from "lucide-react";
+import { RESUME_STORAGE_KEY, type Resume } from "@/lib/resume";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -23,7 +25,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const experience = [
+const demoExperience = [
   {
     period: "2021 — н.в.",
     role: "Lead Product Designer",
@@ -44,7 +46,7 @@ const experience = [
   },
 ];
 
-const skills = [
+const demoSkills = [
   "Product Strategy",
   "Design Systems",
   "Figma",
@@ -71,12 +73,25 @@ const projects = [
 ];
 
 function Index() {
+  const [r, setR] = useState<Resume | null>(null);
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(RESUME_STORAGE_KEY);
+      if (raw) setR(JSON.parse(raw));
+    } catch {}
+  }, []);
+  const name = r?.name || "Константин Иванов";
+  const [first, ...rest] = name.split(" ");
+  const experience = r?.experience?.length ? r.experience : demoExperience;
+  const skills = r?.skills?.length ? r.skills : demoSkills;
+  const email = r ? r.email : "konstantin@example.com";
+  const phone = r ? r.phone : "+7 900 000-00-00";
   return (
     <div className="min-h-screen bg-background font-body text-foreground">
       {/* Навигация */}
       <header className="mx-auto flex max-w-4xl items-center justify-between px-6 py-6">
         <span className="font-display text-lg font-semibold tracking-tight">
-          К. Иванов
+          {name}
         </span>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground sm:flex">
           <a href="#experience" className="transition-colors hover:text-foreground">
@@ -89,9 +104,16 @@ function Index() {
             Контакты
           </a>
         </nav>
+        <Link
+          to="/upload"
+          className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium transition-colors hover:bg-secondary"
+        >
+          <FileUp className="size-4" />
+          Загрузить резюме
+        </Link>
         <a
           href="#contacts"
-          className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+          className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
         >
           Связаться
           <ArrowUpRight className="size-4" />
@@ -101,17 +123,16 @@ function Index() {
       {/* Герой */}
       <section className="mx-auto max-w-4xl px-6 pt-16 pb-20 sm:pt-24">
         <p className="mb-4 text-sm font-medium tracking-widest text-accent-foreground uppercase">
-          Product Designer · Москва
+          {r ? [r.title, r.location].filter(Boolean).join(' · ') : 'Product Designer · Москва'}
         </p>
         <h1 className="font-display text-5xl leading-[1.05] font-semibold tracking-tight sm:text-7xl">
-          Константин
+          {first}
           <br />
-          Иванов
+          {rest.join(" ")}
         </h1>
         <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
-          Проектирую цифровые продукты, которыми пользуются миллионы людей.
-          8 лет опыта в финтехе, e-commerce и образовании. Люблю сложные
-          задачи и измеримые результаты.
+          {r?.summary ||
+            "Проектирую цифровые продукты, которыми пользуются миллионы людей. 8 лет опыта в финтехе, e-commerce и образовании. Люблю сложные задачи и измеримые результаты."}
         </p>
         <div className="mt-10 flex flex-wrap gap-3">
           <a
@@ -132,7 +153,7 @@ function Index() {
       </section>
 
       {/* Цифры */}
-      <section className="border-y border-border bg-secondary/50">
+      {!r && <section className="border-y border-border bg-secondary/50">
         <div className="mx-auto grid max-w-4xl grid-cols-3 divide-x divide-border px-6">
           {[
             ["8 лет", "опыта в дизайне"],
@@ -147,7 +168,7 @@ function Index() {
             </div>
           ))}
         </div>
-      </section>
+      </section>}
 
       {/* Опыт */}
       <section id="experience" className="mx-auto max-w-4xl px-6 py-20">
@@ -157,7 +178,7 @@ function Index() {
         <div className="mt-10 space-y-0">
           {experience.map((job) => (
             <article
-              key={job.company}
+              key={job.company + job.period}
               className="grid gap-2 border-t border-border py-8 sm:grid-cols-[180px_1fr] sm:gap-8"
             >
               <div className="text-sm text-muted-foreground">{job.period}</div>
@@ -176,7 +197,7 @@ function Index() {
       </section>
 
       {/* Проекты */}
-      <section id="projects" className="border-t border-border bg-secondary/50">
+      {!r && <section id="projects" className="border-t border-border bg-secondary/50">
         <div className="mx-auto max-w-4xl px-6 py-20">
           <h2 className="font-display text-3xl font-semibold tracking-tight">
             Ключевые проекты
@@ -195,7 +216,7 @@ function Index() {
             ))}
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* Навыки */}
       <section className="mx-auto max-w-4xl px-6 py-20">
@@ -225,30 +246,30 @@ function Index() {
             в течение дня.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href="mailto:konstantin@example.com"
+            {email && <a
+              href={`mailto:${email}`}
               className="inline-flex items-center gap-2 rounded-full bg-background px-6 py-3 text-sm font-medium text-foreground transition-opacity hover:opacity-90"
             >
               <Mail className="size-4" />
-              konstantin@example.com
-            </a>
-            <a
-              href="tel:+79000000000"
+              {email}
+            </a>}
+            {phone && <a
+              href={`tel:${phone.replace(/[^+\d]/g, "")}`}
               className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/30 px-6 py-3 text-sm font-medium transition-colors hover:bg-primary-foreground/10"
             >
               <Phone className="size-4" />
-              +7 900 000-00-00
-            </a>
+              {phone}
+            </a>}
           </div>
           <div className="mt-6 flex items-center justify-center gap-2 text-sm text-primary-foreground/70">
             <MapPin className="size-4" />
-            Москва, готов к удалённой работе
+            {r ? r.location : "Москва, готов к удалённой работе"}
           </div>
         </div>
       </section>
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        © 2026 Константин Иванов
+        © 2026 {name}
       </footer>
     </div>
   );
