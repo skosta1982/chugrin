@@ -14,7 +14,7 @@ export const extractResume = createServerFn({ method: "POST" })
     return d;
   })
   .handler(async ({ data }): Promise<{ resume: Resume | null; error: string | null }> => {
-    const key = process.env.LOVABLE_API_KEY;
+    const key = process.env["LOVABLE_API_KEY"];
     if (!key) return { resume: null, error: "AI не настроен" };
 
     const res = await fetch("https://ai.gateway.lovable.dev/v1/responses", {
