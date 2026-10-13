@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Download, FileUp, Mail, MapPin, Phone } from "lucide-react";
 import { RESUME_STORAGE_KEY, type Resume } from "@/lib/resume";
+import { readStoredPhoto } from "@/lib/photo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -74,11 +75,13 @@ const projects = [
 
 function Index() {
   const [r, setR] = useState<Resume | null>(null);
+  const [photo, setPhoto] = useState<string | null>(null);
   useEffect(() => {
     try {
       const raw = localStorage.getItem(RESUME_STORAGE_KEY);
       if (raw) setR(JSON.parse(raw));
     } catch {}
+    setPhoto(readStoredPhoto());
   }, []);
   const name = r?.name || "Константин Иванов";
   const [first, ...rest] = name.split(" ");
@@ -122,6 +125,13 @@ function Index() {
 
       {/* Герой */}
       <section className="mx-auto max-w-4xl px-6 pt-16 pb-20 sm:pt-24">
+        {photo && (
+          <img
+            src={photo}
+            alt={name}
+            className="mb-8 size-28 rounded-full object-cover shadow-sm ring-1 ring-border sm:size-36"
+          />
+        )}
         <p className="mb-4 text-sm font-medium tracking-widest text-accent-foreground uppercase">
           {r ? [r.title, r.location].filter(Boolean).join(' · ') : 'Product Designer · Москва'}
         </p>
