@@ -106,7 +106,7 @@ function Upload() {
         <div className="mt-12 rounded-2xl border border-border bg-card p-6">
           <h2 className="font-display text-xl font-semibold tracking-tight">Фото</h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            Снимок появится рядом с вашим именем на главной странице.
+            Снимок появится в шапке сайта, над вашим именем.
           </p>
           <div className="mt-5 flex items-center gap-5">
             {photo ? (
