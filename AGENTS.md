@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Shared profile imagery uses a Lovable Assets pointer as the default, with browser-uploaded photos taking precedence, so visitors see a portrait without requiring local storage.
