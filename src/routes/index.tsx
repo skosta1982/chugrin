@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowUpRight, Download, FileUp, Mail, MapPin, Phone } from "lucide-react";
 import { RESUME_STORAGE_KEY, type Resume } from "@/lib/resume";
 import { readStoredPhoto } from "@/lib/photo";
+import profilePhoto from "@/assets/resume-photo.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -75,13 +76,13 @@ const projects = [
 
 function Index() {
   const [r, setR] = useState<Resume | null>(null);
-  const [photo, setPhoto] = useState<string | null>(null);
+  const [photo, setPhoto] = useState<string | null>(profilePhoto.url);
   useEffect(() => {
     try {
       const raw = localStorage.getItem(RESUME_STORAGE_KEY);
       if (raw) setR(JSON.parse(raw));
     } catch {}
-    setPhoto(readStoredPhoto());
+    setPhoto(readStoredPhoto() ?? profilePhoto.url);
   }, []);
   const name = r?.name || "Константин Иванов";
   const [first, ...rest] = name.split(" ");
