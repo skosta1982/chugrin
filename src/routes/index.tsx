@@ -1,77 +1,110 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowUpRight, Download, FileUp, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, Download, FileUp, GraduationCap, Mail, MapPin, Phone } from "lucide-react";
 import { RESUME_STORAGE_KEY, type Resume } from "@/lib/resume";
 import { readStoredPhoto } from "@/lib/photo";
 import profilePhoto from "@/assets/resume-photo.jpg.asset.json";
+import resumePdf from "@/assets/resume.pdf.asset.json";
+
+const NAME = "Константин Чугрин";
+const TITLE = "Ведущий специалист технической поддержки";
+const LOCATION = "Москва";
+const EMAIL = "skosta_m@mail.ru";
+const PHONE = "+7 (926) 357-34-95";
+const SUMMARY =
+  "Технический специалист с 20-летним опытом в IT-поддержке и сопровождении корпоративных систем федерального масштаба (РЖД, Транстелеком). Рекомендован в кадровый резерв РЖД на позицию начальника отдела. Ищу позицию ведущего специалиста или руководителя группы технической поддержки.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Константин Иванов — Product Designer" },
+      { title: "Константин Чугрин — Ведущий специалист технической поддержки" },
       {
         name: "description",
         content:
-          "Сайт-резюме Константина Иванова: product designer с опытом 8 лет. Опыт, проекты, навыки и контакты.",
+          "Сайт-резюме Константина Чугрина: 20 лет в IT-поддержке и сопровождении корпоративных систем (РЖД, Транстелеком). Опыт, достижения, навыки и контакты.",
       },
-      { property: "og:title", content: "Константин Иванов — Product Designer" },
+      { property: "og:title", content: "Константин Чугрин — Ведущий специалист технической поддержки" },
       {
         property: "og:description",
         content:
-          "Сайт-резюме Константина Иванова: product designer с опытом 8 лет. Опыт, проекты, навыки и контакты.",
+          "20 лет в IT-поддержке корпоративных систем федерального масштаба. Опыт, достижения, навыки и контакты.",
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: Index,
 });
 
-const demoExperience = [
+const defaultExperience = [
   {
-    period: "2021 — н.в.",
-    role: "Lead Product Designer",
-    company: "FinTech Start",
-    text: "Руковожу командой из 4 дизайнеров, отвечаю за дизайн-систему и ключевые продуктовые метрики. Конверсия онбординга выросла на 34%.",
+    period: "2016 — 2026",
+    role: "Ведущий специалист по сопровождению информационных систем",
+    company: "АО «Центр корпоративного учёта и отчётности» (ОАО «РЖД»)",
+    text: "Техническая поддержка 1 500 пользователей финансово-учётных систем SAP. Автоматизировал регламентную отчётность (SAP + Excel), исключив ручную выгрузку для руководства. Курировал внедрение машиночитаемых доверенностей: сопроводил 50+ сотрудников. Настраивал защищённый документооборот с банками (ВТБ, Сбербанк). Внедрил инструкции по типовым обращениям, снизив повторные обращения. Зона ответственности выросла в 5 раз. Замещал заместителя начальника отдела, рекомендован в кадровый резерв РЖД на позицию начальника отдела. Награждён почётными грамотами (2017, 2022).",
   },
   {
-    period: "2018 — 2021",
-    role: "Senior Product Designer",
-    company: "Digital Agency N1",
-    text: "Проектировал интерфейсы для банковских и e-commerce продуктов. Запустил 12 продуктов с нуля до релиза.",
+    period: "2008 — 2016",
+    role: "Менеджер эксплуатации сети",
+    company: "ОАО «Транстелеком»",
+    text: "Эксплуатация и развитие телеком-инфраструктуры: настройка и диагностика оборудования Cisco, анализ логов, предотвращение сбоев. Разворачивал IP-телефонию (Cisco, Yealink, Audiocodes), администрировал СКУД BioSmart. Проводил техническую экспертизу оборудования перед закупкой.",
   },
   {
-    period: "2016 — 2018",
-    role: "UI/UX Designer",
-    company: "Studio Kraft",
-    text: "Дизайн сайтов и мобильных приложений, прототипирование, работа с заказчиками.",
+    period: "2007 — 2008",
+    role: "Инженер по инсталляции",
+    company: "ОАО «Транстелеком»",
+    text: "Полный цикл монтажных и пусконаладочных работ телекоммуникационной инфраструктуры: монтаж структурированных кабельных систем, ввод оборудования в эксплуатацию.",
+  },
+  {
+    period: "2006 — 2007",
+    role: "Технический специалист",
+    company: "ООО «РТС Телеком»",
+    text: "Подключение и техническая поддержка клиентов по технологии WiMax. Проектирование и строительство компьютерных сетей полным циклом.",
   },
 ];
 
-const demoSkills = [
-  "Product Strategy",
-  "Design Systems",
-  "Figma",
-  "UX Research",
-  "Прототипирование",
-  "Design Ops",
-  "A/B-тесты",
-  "Английский — C1",
+const defaultSkills = [
+  "Техническая поддержка",
+  "SAP",
+  "Helpdesk",
+  "Автоматизация процессов",
+  "Электронный документооборот",
+  "MS Excel — анализ данных",
+  "Cisco / сетевые технологии",
+  "VoIP",
+  "Настройка и ремонт ПК",
+  "Деловая переписка",
+  "Наставничество",
+  "Английский — B1",
 ];
 
-const projects = [
+const education = [
   {
-    name: "Банковское приложение «Орбита»",
-    result: "2 млн пользователей, редизайн главного экрана поднял NPS с 31 до 52",
+    year: "2006",
+    degree: "Высшее образование",
+    school: "Московский технический университет связи и информатики",
+    detail: "Радиотехника, микроволновая техника",
   },
   {
-    name: "Платформа онлайн-обучения",
-    result: "Дизайн-система на 200+ компонентов, время разработки сократилось на 40%",
+    year: "2001",
+    degree: "Среднее специальное",
+    school: "Московский техникум информатики и вычислительной техники",
+    detail: "Автоматизированные системы обработки информации и управления",
   },
-  {
-    name: "Сервис доставки еды",
-    result: "Новый сценарий заказа: конверсия в оплату +18%",
-  },
+];
+
+const courses = [
+  "Microsoft Excel. Уровень 3: анализ и визуализация данных (2023)",
+  "Microsoft Excel. Уровень 1 (2022)",
+  "Основы критического мышления — Корпоративный университет РЖД (2022)",
+  "Цифровая трансформация в экономике — РУТ (МИИТ) (2022)",
+  "Cisco Certified Network Associate (2013)",
+];
+
+const stats = [
+  ["20 лет", "опыта в IT-поддержке"],
+  ["1 500", "пользователей на сопровождении"],
+  ["×5", "выросла зона ответственности"],
 ];
 
 function Index() {
@@ -84,12 +117,12 @@ function Index() {
     } catch {}
     setPhoto(readStoredPhoto() ?? profilePhoto.url);
   }, []);
-  const name = r?.name || "Константин Иванов";
+  const name = r?.name || NAME;
   const [first, ...rest] = name.split(" ");
-  const experience = r?.experience?.length ? r.experience : demoExperience;
-  const skills = r?.skills?.length ? r.skills : demoSkills;
-  const email = r ? r.email : "konstantin@example.com";
-  const phone = r ? r.phone : "+7 900 000-00-00";
+  const experience = r?.experience?.length ? r.experience : defaultExperience;
+  const skills = r?.skills?.length ? r.skills : defaultSkills;
+  const email = r ? r.email : EMAIL;
+  const phone = r ? r.phone : PHONE;
   return (
     <div className="min-h-screen bg-background font-body text-foreground">
       {/* Навигация */}
@@ -101,8 +134,8 @@ function Index() {
           <a href="#experience" className="transition-colors hover:text-foreground">
             Опыт
           </a>
-          <a href="#projects" className="transition-colors hover:text-foreground">
-            Проекты
+          <a href="#education" className="transition-colors hover:text-foreground">
+            Образование
           </a>
           <a href="#contacts" className="transition-colors hover:text-foreground">
             Контакты
@@ -134,7 +167,7 @@ function Index() {
           />
         )}
         <p className="mb-4 text-sm font-medium tracking-widest text-accent-foreground uppercase">
-          {r ? [r.title, r.location].filter(Boolean).join(' · ') : 'Product Designer · Москва'}
+          {r ? [r.title, r.location].filter(Boolean).join(" · ") : `${TITLE} · ${LOCATION}`}
         </p>
         <h1 className="font-display text-5xl leading-[1.05] font-semibold tracking-tight sm:text-7xl">
           {first}
@@ -142,8 +175,7 @@ function Index() {
           {rest.join(" ")}
         </h1>
         <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
-          {r?.summary ||
-            "Проектирую цифровые продукты, которыми пользуются миллионы людей. 8 лет опыта в финтехе, e-commerce и образовании. Люблю сложные задачи и измеримые результаты."}
+          {r?.summary || SUMMARY}
         </p>
         <div className="mt-10 flex flex-wrap gap-3">
           <a
@@ -154,7 +186,8 @@ function Index() {
             Написать мне
           </a>
           <a
-            href="#"
+            href={resumePdf.url}
+            download="konstantin-chugrin-resume.pdf"
             className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-medium transition-colors hover:bg-secondary"
           >
             <Download className="size-4" />
@@ -166,11 +199,7 @@ function Index() {
       {/* Цифры */}
       {!r && <section className="border-y border-border bg-secondary/50">
         <div className="mx-auto grid max-w-4xl grid-cols-3 divide-x divide-border px-6">
-          {[
-            ["8 лет", "опыта в дизайне"],
-            ["12+", "продуктов запущено"],
-            ["2 млн", "пользователей"],
-          ].map(([num, label]) => (
+          {stats.map(([num, label]) => (
             <div key={label} className="py-10 text-center">
               <div className="font-display text-3xl font-semibold sm:text-4xl">
                 {num}
@@ -207,25 +236,43 @@ function Index() {
         </div>
       </section>
 
-      {/* Проекты */}
-      {!r && <section id="projects" className="border-t border-border bg-secondary/50">
+      {/* Образование */}
+      {!r && <section id="education" className="border-t border-border bg-secondary/50">
         <div className="mx-auto max-w-4xl px-6 py-20">
           <h2 className="font-display text-3xl font-semibold tracking-tight">
-            Ключевые проекты
+            Образование
           </h2>
-          <div className="mt-10 grid gap-4 sm:grid-cols-3">
-            {projects.map((p) => (
-              <div
-                key={p.name}
-                className="rounded-2xl border border-border bg-card p-6 transition-shadow hover:shadow-lg"
+          <div className="mt-10 space-y-0">
+            {education.map((e) => (
+              <article
+                key={e.school}
+                className="grid gap-2 border-t border-border py-8 sm:grid-cols-[180px_1fr] sm:gap-8"
               >
-                <h3 className="font-semibold">{p.name}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {p.result}
-                </p>
-              </div>
+                <div className="text-sm text-muted-foreground">{e.year}</div>
+                <div>
+                  <h3 className="flex items-center gap-2 text-lg font-semibold">
+                    <GraduationCap className="size-5 text-muted-foreground" />
+                    {e.school}
+                  </h3>
+                  <div className="text-sm font-medium text-muted-foreground">
+                    {e.degree}
+                  </div>
+                  <p className="mt-2 leading-relaxed text-muted-foreground">
+                    {e.detail}
+                  </p>
+                </div>
+              </article>
             ))}
           </div>
+          <h3 className="mt-12 text-lg font-semibold">Повышение квалификации</h3>
+          <ul className="mt-4 space-y-2 text-muted-foreground">
+            {courses.map((c) => (
+              <li key={c} className="flex gap-3">
+                <span className="mt-2 size-1.5 shrink-0 rounded-full bg-foreground/40" />
+                {c}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>}
 
@@ -274,7 +321,7 @@ function Index() {
           </div>
           <div className="mt-6 flex items-center justify-center gap-2 text-sm text-primary-foreground/70">
             <MapPin className="size-4" />
-            {r ? r.location : "Москва, готов к удалённой работе"}
+            {r ? r.location : "Москва, готов к гибридному или удалённому формату"}
           </div>
         </div>
       </section>
