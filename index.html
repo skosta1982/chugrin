@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Константин Чугрин — Ведущий специалист технической поддержки</title>
-  <meta name="description" content="Резюме Константина Чугрина: 20 лет в IT-поддержке корпоративных систем (РЖД, Транстелеком). Опыт, достижения, навыки и контакты.">
+  <meta name="description" content="Сайт-резюме Константина Чугрина: 20 лет в IT-поддержке и сопровождении корпоративных систем (РЖД, Транстелеком). Опыт, достижения, навыки и контакты.">
   <meta property="og:title" content="Константин Чугрин — Ведущий специалист технической поддержки">
   <meta property="og:description" content="20 лет в IT-поддержке корпоративных систем федерального масштаба (РЖД, Транстелеком).">
   <meta property="og:type" content="website">
@@ -16,13 +16,13 @@
   <style>
     :root {
       --bg: #faf9f6;
-      --fg: #1c1917;
-      --muted: #78716c;
-      --border: #e7e5e4;
+      --fg: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
       --card: #ffffff;
-      --secondary: #f5f5f4;
-      --primary: #18181b;
-      --primary-fg: #fafafa;
+      --secondary: #f1f5f9;
+      --primary: #0f172a;
+      --primary-fg: #f8fafc;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -30,17 +30,32 @@
       font-family: "Work Sans", system-ui, -apple-system, sans-serif;
       background: var(--bg);
       color: var(--fg);
-      line-height: 1.5;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
     .font-serif { font-family: "Instrument Serif", Georgia, serif; }
-    .container { max-width: 56rem; margin: 0 auto; padding: 0 1.5rem; }
+    
+    /* Чёткие и надёжные боковые отступы для всех экранов */
+    .container {
+      max-width: 56rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+    @media (min-width: 640px) {
+      .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+    }
     
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.5rem 0;
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
     }
     .brand { font-size: 1.125rem; font-weight: 600; letter-spacing: -0.02em; }
     nav { display: flex; gap: 2rem; font-size: 0.875rem; color: var(--muted); }
@@ -50,6 +65,7 @@
     .btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.5rem;
       padding: 0.625rem 1.25rem;
       font-size: 0.875rem;
@@ -64,153 +80,193 @@
     .btn-outline { background: var(--card); color: var(--fg); border: 1px solid var(--border); }
     .btn-outline:hover { background: var(--secondary); }
     
-    .hero { padding: 4rem 0 5rem; }
+    .hero {
+      padding-top: 2.5rem;
+      padding-bottom: 3.5rem;
+    }
     .avatar {
-      width: 7rem;
-      height: 7rem;
+      width: 6.5rem;
+      height: 6.5rem;
       border-radius: 9999px;
       object-fit: cover;
-      margin-bottom: 2rem;
-      border: 1px solid var(--border);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      margin-bottom: 1.5rem;
+      border: 2px solid #ffffff;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
     }
     @media (min-width: 640px) {
-      .avatar { width: 9rem; height: 9rem; }
-      .hero { padding: 6rem 0 5rem; }
+      .avatar { width: 8.5rem; height: 8.5rem; margin-bottom: 2rem; }
+      .hero { padding-top: 4.5rem; padding-bottom: 5rem; }
     }
     .tagline {
-      font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
     .title {
-      font-size: 3rem;
-      line-height: 1.05;
+      font-size: 2.75rem;
+      line-height: 1.06;
       font-weight: 600;
       letter-spacing: -0.02em;
     }
     @media (min-width: 640px) { .title { font-size: 4.5rem; } }
-    .summary {
-      margin-top: 2rem;
+.summary {
+      margin-top: 1.5rem;
       max-width: 38rem;
-      font-size: 1.125rem;
-      line-height: 1.7;
+      font-size: 1.0625rem;
+      line-height: 1.65;
       color: var(--muted);
     }
-    .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2.5rem; }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
     
     .stats {
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      background: rgba(245, 245, 244, 0.6);
+      background: rgba(241, 245, 249, 0.7);
     }
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-text-align: center;
+      text-align: center;
     }
     .stats-cell {
-      padding: 2.5rem 0.5rem;
+      padding: 1.75rem 0.35rem;
       border-left: 1px solid var(--border);
     }
     .stats-cell:first-child { border-left: none; }
-    .stats-num { font-size: 2rem; font-weight: 600; }
-    @media (min-width: 640px) { .stats-num { font-size: 2.5rem; } }
-    .stats-label { margin-top: 0.25rem; font-size: 0.875rem; color: var(--muted); }
+    .stats-num { font-size: 1.625rem; font-weight: 600; line-height: 1.1; }
+    @media (min-width: 640px) {
+      .stats-num { font-size: 2.5rem; }
+      .stats-cell { padding: 2.5rem 1rem; }
+    }
+    .stats-label {
+      margin-top: 0.35rem;
+      font-size: 0.75rem;
+      line-height: 1.3;
+      color: var(--muted);
+    }
+    @media (min-width: 640px) { .stats-label { font-size: 0.875rem; } }
     
-    .section { padding: 5rem 0; }
-    .section-title { font-size: 2rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 2.5rem; }
+    .section {
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
+    }
+    @media (min-width: 640px) {
+      .section { padding-top: 5rem; padding-bottom: 5rem; }
+    }
+    .section-title { font-size: 1.875rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 2rem; }
+    @media (min-width: 640px) { .section-title { font-size: 2.25rem; margin-bottom: 2.5rem; } }
     
     .job {
       display: grid;
       grid-template-columns: 1fr;
       gap: 0.5rem;
-      padding: 2rem 0;
+      padding: 1.75rem 0;
       border-top: 1px solid var(--border);
     }
     @media (min-width: 640px) {
-      .job { grid-template-columns: 180px 1fr; gap: 2rem; }
+      .job { grid-template-columns: 180px 1fr; gap: 2rem; padding: 2rem 0; }
     }
-    .job-period { font-size: 0.875rem; color: var(--muted); }
-    .job-role { font-size: 1.125rem; font-weight: 600; }
+    .job-period { font-size: 0.8125rem; font-weight: 500; color: var(--muted); }
+    .job-role { font-size: 1.0625rem; font-weight: 600; line-height: 1.35; }
     .job-company { font-size: 0.875rem; font-weight: 500; color: var(--muted); margin-top: 0.125rem; }
-    .job-desc { margin-top: 0.75rem; line-height: 1.65; color: var(--muted); }
+    .job-desc { margin-top: 0.75rem; font-size: 0.9375rem; line-height: 1.65; color: var(--muted); }
     
     .edu-section {
       border-top: 1px solid var(--border);
-      background: rgba(245, 245, 244, 0.6);
+      background: rgba(241, 245, 249, 0.7);
     }
     .courses-list { list-style: none; margin-top: 1rem; }
     .courses-list li {
       display: flex;
       align-items: flex-start;
       gap: 0.75rem;
-      margin-top: 0.5rem;
+      margin-top: 0.625rem;
+      font-size: 0.9375rem;
       color: var(--muted);
     }
     .bullet { width: 6px; height: 6px; border-radius: 50%; background: var(--fg); opacity: 0.4; margin-top: 0.55rem; flex-shrink: 0; }
     
     .skills-wrap { display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .skill-tag {
-      padding: 0.5rem 1rem;
+      padding: 0.45rem 0.9rem;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 9999px;
-      font-size: 0.875rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
     }
     
     .contacts-section {
       background: var(--primary);
       color: var(--primary-fg);
       text-align: center;
-      padding: 5rem 1.5rem;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
     }
-    .contacts-title { font-size: 2.5rem; font-weight: 600; letter-spacing: -0.02em; }
-    .contacts-sub { max-width: 28rem; margin: 1rem auto 2.5rem; opacity: 0.8; }
+    @media (min-width: 640px) {
+      .contacts-section { padding-top: 5rem; padding-bottom: 5rem; }
+    }
+    .contacts-title { font-size: 2.125rem; font-weight: 600; letter-spacing: -0.02em; }
+    .contacts-sub { max-width: 28rem; margin: 1rem auto 2rem; opacity: 0.85; font-size: 0.9375rem; }
     .contacts-btns {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 1rem;
+      gap: 0.75rem;
     }
     @media (min-width: 640px) {
-      .contacts-btns { flex-direction: row; }
+      .contacts-btns { flex-direction: row; gap: 1rem; }
     }
     .btn-contact {
       background: #ffffff;
-      color: #18181b;
+      color: #0f172a;
       padding: 0.75rem 1.5rem;
       border-radius: 9999px;
       font-weight: 500;
+      font-size: 0.9375rem;
       text-decoration: none;
-      display: inline-flex;
+display: inline-flex;
       align-items: center;
       gap: 0.5rem;
+      width: 100%;
+      max-width: 20rem;
+      justify-content: center;
     }
+    @media (min-width: 640px) { .btn-contact { width: auto; } }
     .btn-contact-outline {
       border: 1px solid rgba(255, 255, 255, 0.3);
       color: #ffffff;
       padding: 0.75rem 1.5rem;
       border-radius: 9999px;
       font-weight: 500;
+      font-size: 0.9375rem;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
+      width: 100%;
+      max-width: 20rem;
+      justify-content: center;
       transition: background 0.2s;
     }
+    @media (min-width: 640px) { .btn-contact-outline { width: auto; } }
     .btn-contact-outline:hover { background: rgba(255, 255, 255, 0.1); }
-    .location-text { margin-top: 1.5rem; font-size: 0.875rem; opacity: 0.7; display: flex; align-items: center; justify-content: center; gap: 0.35rem; }
+    .location-text { margin-top: 1.5rem; font-size: 0.8125rem; opacity: 0.75; display: flex; align-items: center; justify-content: center; gap: 0.35rem; }
     
     footer {
       border-top: 1px solid var(--border);
-      padding: 2rem 0;
+      padding: 1.75rem 0;
       text-align: center;
-      font-size: 0.875rem;
+      font-size: 0.8125rem;
       color: var(--muted);
     }
     svg { vertical-align: middle; }
@@ -231,7 +287,8 @@ text-align: center;
     </nav>
     <a href="#contacts" class="btn btn-primary">Связаться</a>
   </header>
-<main>
+
+  <main>
     <section class="container hero">
       <img 
         src="https://chugrin.lovable.app/__l5e/assets-v1/b0dadf91-ae06-4e24-add6-9f8e9ce97573/resume-photo.jpg" 
@@ -272,8 +329,7 @@ text-align: center;
         </div>
       </div>
     </section>
-
-    <section id="experience" class="container section">
+<section id="experience" class="container section">
       <h2 class="section-title font-serif">Опыт работы</h2>
       
       <article class="job">
@@ -297,7 +353,8 @@ text-align: center;
           </p>
         </div>
       </article>
-<article class="job">
+
+      <article class="job">
         <div class="job-period">2007 — 2008</div>
         <div>
           <h3 class="job-role">Инженер по инсталляции</h3>
@@ -342,12 +399,12 @@ text-align: center;
           </div>
         </article>
 
-        <div style="margin-top: 3rem;">
+        <div style="margin-top: 2.5rem;">
           <h3 style="font-size: 1.125rem; font-weight: 600;">Повышение квалификации</h3>
           <ul class="courses-list">
             <li><span class="bullet"></span>Microsoft Excel. Уровень 3: анализ и визуализация данных (2023)</li>
             <li><span class="bullet"></span>Microsoft Excel. Уровень 1 (2022)</li>
-            <li><span class="bullet"></span>Основы критического мышления — Корпоративный университет РЖД (2022)</li>
+<li><span class="bullet"></span>Основы критического мышления — Корпоративный университет РЖД (2022)</li>
             <li><span class="bullet"></span>Цифровая трансформация в экономике — РУТ (МИИТ) (2022)</li>
             <li><span class="bullet"></span>Cisco Certified Network Associate (2013)</li>
           </ul>
@@ -381,7 +438,7 @@ text-align: center;
       <div class="contacts-btns">
         <a href="mailto:skosta_m@mail.ru" class="btn-contact">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-skosta_m@mail.ru
+          skosta_m@mail.ru
         </a>
         <a href="tel:+79263573495" class="btn-contact-outline">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
