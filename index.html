@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Константин Чугрин — Ведущий специалист технической поддержки</title>
+  <meta name="description" content="Резюме Константина Чугрина: 20 лет в IT-поддержке корпоративных систем (РЖД, Транстелеком). Опыт, достижения, навыки и контакты.">
+  <meta property="og:title" content="Константин Чугрин — Ведущий специалист технической поддержки">
+  <meta property="og:description" content="20 лет в IT-поддержке корпоративных систем федерального масштаба (РЖД, Транстелеком).">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #faf9f6;
+      --fg: #1c1917;
+      --muted: #78716c;
+      --border: #e7e5e4;
+      --card: #ffffff;
+      --secondary: #f5f5f4;
+      --primary: #18181b;
+      --primary-fg: #fafafa;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Work Sans", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-serif { font-family: "Instrument Serif", Georgia, serif; }
+    .container { max-width: 56rem; margin: 0 auto; padding: 0 1.5rem; }
+    
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 0;
+    }
+    .brand { font-size: 1.125rem; font-weight: 600; letter-spacing: -0.02em; }
+    nav { display: flex; gap: 2rem; font-size: 0.875rem; color: var(--muted); }
+    nav a { text-decoration: none; color: inherit; transition: color 0.2s; }
+    nav a:hover { color: var(--fg); }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.625rem 1.25rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: opacity 0.2s, background 0.2s;
+      cursor: pointer;
+    }
+    .btn-primary { background: var(--primary); color: var(--primary-fg); }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-outline { background: var(--card); color: var(--fg); border: 1px solid var(--border); }
+    .btn-outline:hover { background: var(--secondary); }
+    
+    .hero { padding: 4rem 0 5rem; }
+    .avatar {
+      width: 7rem;
+      height: 7rem;
+      border-radius: 9999px;
+      object-fit: cover;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    @media (min-width: 640px) {
+      .avatar { width: 9rem; height: 9rem; }
+      .hero { padding: 6rem 0 5rem; }
+    }
+    .tagline {
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .title {
+      font-size: 3rem;
+      line-height: 1.05;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    @media (min-width: 640px) { .title { font-size: 4.5rem; } }
+    .summary {
+      margin-top: 2rem;
+      max-width: 38rem;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2.5rem; }
+    
+    .stats {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: rgba(245, 245, 244, 0.6);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+text-align: center;
+    }
+    .stats-cell {
+      padding: 2.5rem 0.5rem;
+      border-left: 1px solid var(--border);
+    }
+    .stats-cell:first-child { border-left: none; }
+    .stats-num { font-size: 2rem; font-weight: 600; }
+    @media (min-width: 640px) { .stats-num { font-size: 2.5rem; } }
+    .stats-label { margin-top: 0.25rem; font-size: 0.875rem; color: var(--muted); }
+    
+    .section { padding: 5rem 0; }
+    .section-title { font-size: 2rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 2.5rem; }
+    
+    .job {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+    }
+    @media (min-width: 640px) {
+      .job { grid-template-columns: 180px 1fr; gap: 2rem; }
+    }
+    .job-period { font-size: 0.875rem; color: var(--muted); }
+    .job-role { font-size: 1.125rem; font-weight: 600; }
+    .job-company { font-size: 0.875rem; font-weight: 500; color: var(--muted); margin-top: 0.125rem; }
+    .job-desc { margin-top: 0.75rem; line-height: 1.65; color: var(--muted); }
+    
+    .edu-section {
+      border-top: 1px solid var(--border);
+      background: rgba(245, 245, 244, 0.6);
+    }
+    .courses-list { list-style: none; margin-top: 1rem; }
+    .courses-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+      color: var(--muted);
+    }
+    .bullet { width: 6px; height: 6px; border-radius: 50%; background: var(--fg); opacity: 0.4; margin-top: 0.55rem; flex-shrink: 0; }
+    
+    .skills-wrap { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .skill-tag {
+      padding: 0.5rem 1rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      font-size: 0.875rem;
+    }
+    
+    .contacts-section {
+      background: var(--primary);
+      color: var(--primary-fg);
+      text-align: center;
+      padding: 5rem 1.5rem;
+    }
+    .contacts-title { font-size: 2.5rem; font-weight: 600; letter-spacing: -0.02em; }
+    .contacts-sub { max-width: 28rem; margin: 1rem auto 2.5rem; opacity: 0.8; }
+    .contacts-btns {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    @media (min-width: 640px) {
+      .contacts-btns { flex-direction: row; }
+    }
+    .btn-contact {
+      background: #ffffff;
+      color: #18181b;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-contact-outline {
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.2s;
+    }
+    .btn-contact-outline:hover { background: rgba(255, 255, 255, 0.1); }
+    .location-text { margin-top: 1.5rem; font-size: 0.875rem; opacity: 0.7; display: flex; align-items: center; justify-content: center; gap: 0.35rem; }
+    
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+    svg { vertical-align: middle; }
+    @media (max-width: 640px) {
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="container">
+    <span class="brand font-serif">Константин Чугрин</span>
+    <nav>
+      <a href="#experience">Опыт</a>
+      <a href="#education">Образование</a>
+      <a href="#skills">Навыки</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a href="#contacts" class="btn btn-primary">Связаться</a>
+  </header>
+<main>
+    <section class="container hero">
+      <img 
+        src="https://chugrin.lovable.app/__l5e/assets-v1/b0dadf91-ae06-4e24-add6-9f8e9ce97573/resume-photo.jpg" 
+        alt="Константин Чугрин" 
+        class="avatar"
+        onerror="this.style.display='none'"
+      >
+      <p class="tagline">Ведущий специалист технической поддержки · Москва</p>
+      <h1 class="title font-serif">Константин<br>Чугрин</h1>
+      <p class="summary">
+        Технический специалист с 20-летним опытом в IT-поддержке и сопровождении корпоративных систем федерального масштаба (РЖД, Транстелеком). Рекомендован в кадровый резерв РЖД на позицию начальника отдела. Ищу позицию ведущего специалиста или руководителя группы технической поддержки.
+      </p>
+      <div class="actions">
+        <a href="#contacts" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Написать мне
+        </a>
+        <a href="https://chugrin.lovable.app/__l5e/assets-v1/5efe2d8c-60b2-481d-9c15-0668f0806ad2/konstantin-chugrin-resume.pdf" download="konstantin-chugrin-resume.pdf" class="btn btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+          Скачать PDF
+        </a>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="container stats-grid">
+        <div class="stats-cell">
+          <div class="stats-num font-serif">20 лет</div>
+          <div class="stats-label">опыта в IT-поддержке</div>
+        </div>
+        <div class="stats-cell">
+          <div class="stats-num font-serif">1 500</div>
+          <div class="stats-label">пользователей на сопровождении</div>
+        </div>
+        <div class="stats-cell">
+          <div class="stats-num font-serif">×5</div>
+          <div class="stats-label">выросла зона ответственности</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="container section">
+      <h2 class="section-title font-serif">Опыт работы</h2>
+      
+      <article class="job">
+        <div class="job-period">2016 — 2026</div>
+        <div>
+          <h3 class="job-role">Ведущий специалист по сопровождению информационных систем</h3>
+          <div class="job-company">АО «Центр корпоративного учёта и отчётности» (ОАО «РЖД»)</div>
+          <p class="job-desc">
+            Техническая поддержка 1 500 пользователей финансово-учётных систем SAP. Автоматизировал регламентную отчётность (SAP + Excel), исключив ручную выгрузку для руководства. Курировал внедрение машиночитаемых доверенностей: сопроводил 50+ сотрудников. Настраивал защищённый документооборот с банками (ВТБ, Сбербанк). Внедрил инструкции по типовым обращениям, снизив повторные обращения. Зона ответственности выросла в 5 раз. Замещал заместителя начальника отдела, рекомендован в кадровый резерв РЖД на позицию начальника отдела. Награждён почётными грамотами (2017, 2022).
+          </p>
+        </div>
+      </article>
+
+      <article class="job">
+        <div class="job-period">2008 — 2016</div>
+        <div>
+          <h3 class="job-role">Менеджер эксплуатации сети</h3>
+          <div class="job-company">ОАО «Транстелеком»</div>
+          <p class="job-desc">
+            Эксплуатация и развитие телеком-инфраструктуры: настройка и диагностика оборудования Cisco, анализ логов, предотвращение сбоев. Разворачивал IP-телефонию (Cisco, Yealink, Audiocodes), администрировал СКУД BioSmart. Проводил техническую экспертизу оборудования перед закупкой.
+          </p>
+        </div>
+      </article>
+<article class="job">
+        <div class="job-period">2007 — 2008</div>
+        <div>
+          <h3 class="job-role">Инженер по инсталляции</h3>
+          <div class="job-company">ОАО «Транстелеком»</div>
+          <p class="job-desc">
+            Полный цикл монтажных и пусконаладочных работ телекоммуникационной инфраструктуры: монтаж структурированных кабельных систем, ввод оборудования в эксплуатацию.
+          </p>
+        </div>
+      </article>
+
+      <article class="job">
+        <div class="job-period">2006 — 2007</div>
+        <div>
+          <h3 class="job-role">Технический специалист</h3>
+          <div class="job-company">ООО «РТС Телеком»</div>
+          <p class="job-desc">
+            Подключение и техническая поддержка клиентов по технологии WiMax. Проектирование и строительство компьютерных сетей полным циклом.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section id="education" class="edu-section">
+      <div class="container section">
+        <h2 class="section-title font-serif">Образование</h2>
+        
+        <article class="job">
+          <div class="job-period">2006</div>
+          <div>
+            <h3 class="job-role">Московский технический университет связи и информатики</h3>
+            <div class="job-company">Высшее образование</div>
+            <p class="job-desc">Радиотехника, микроволновая техника</p>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-period">2001</div>
+          <div>
+            <h3 class="job-role">Московский техникум информатики и вычислительной техники</h3>
+            <div class="job-company">Среднее специальное</div>
+            <p class="job-desc">Автоматизированные системы обработки информации и управления</p>
+          </div>
+        </article>
+
+        <div style="margin-top: 3rem;">
+          <h3 style="font-size: 1.125rem; font-weight: 600;">Повышение квалификации</h3>
+          <ul class="courses-list">
+            <li><span class="bullet"></span>Microsoft Excel. Уровень 3: анализ и визуализация данных (2023)</li>
+            <li><span class="bullet"></span>Microsoft Excel. Уровень 1 (2022)</li>
+            <li><span class="bullet"></span>Основы критического мышления — Корпоративный университет РЖД (2022)</li>
+            <li><span class="bullet"></span>Цифровая трансформация в экономике — РУТ (МИИТ) (2022)</li>
+            <li><span class="bullet"></span>Cisco Certified Network Associate (2013)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="container section">
+      <h2 class="section-title font-serif">Навыки</h2>
+      <div class="skills-wrap">
+        <span class="skill-tag">Техническая поддержка</span>
+        <span class="skill-tag">SAP</span>
+        <span class="skill-tag">Helpdesk</span>
+        <span class="skill-tag">Автоматизация процессов</span>
+        <span class="skill-tag">Электронный документооборот</span>
+        <span class="skill-tag">MS Excel — анализ данных</span>
+        <span class="skill-tag">Cisco / сетевые технологии</span>
+        <span class="skill-tag">VoIP</span>
+        <span class="skill-tag">Настройка и ремонт ПК</span>
+        <span class="skill-tag">Деловая переписка</span>
+        <span class="skill-tag">Наставничество</span>
+        <span class="skill-tag">Английский — B1</span>
+      </div>
+    </section>
+  </main>
+
+  <section id="contacts" class="contacts-section">
+    <div class="container">
+      <h2 class="contacts-title font-serif">Давайте работать вместе</h2>
+      <p class="contacts-sub">Открыт для предложений о работе и интересных проектов. Отвечаю в течение дня.</p>
+      <div class="contacts-btns">
+        <a href="mailto:skosta_m@mail.ru" class="btn-contact">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+skosta_m@mail.ru
+        </a>
+        <a href="tel:+79263573495" class="btn-contact-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +7 (926) 357-34-95
+        </a>
+      </div>
+      <div class="location-text">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Москва, готов к гибридному или удалённому формату
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2026 Константин Чугрин
+    </div>
+  </footer>
+
+</body>
+</html>
