@@ -261,6 +261,10 @@ display: inline-flex;
     @media (min-width: 640px) { .btn-contact-outline { width: auto; } }
     .btn-contact-outline:hover { background: rgba(255, 255, 255, 0.1); }
     .location-text { margin-top: 1.5rem; font-size: 0.8125rem; opacity: 0.75; display: flex; align-items: center; justify-content: center; gap: 0.35rem; }
+    .qr-block { margin: 2rem auto 0; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
+    .qr-block .qr { width: 9rem; height: 9rem; background: #fff; padding: 0.5rem; border-radius: 0.75rem; }
+    .qr-block .qr svg { width: 100%; height: 100%; display: block; }
+    .qr-block span { font-size: 0.8125rem; opacity: 0.8; }
     
     footer {
       border-top: 1px solid var(--border);
@@ -448,6 +452,9 @@ display: inline-flex;
       <div class="location-text">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
         Москва · Любой формат: офис, гибрид или удалённо
+      <div class="qr-block">
+        <div class="qr" aria-label="QR-код со ссылкой на сайт-визитку"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 31" shape-rendering="crispEdges"><path fill="#ffffff" d="M0 0h31v31H0z"/><path stroke="#000000" d="M1 1.5h7m3 0h2m1 0h7m2 0h7M1 2.5h1m5 0h1m1 0h1m1 0h1m3 0h2m1 0h1m1 0h1m2 0h1m5 0h1M1 3.5h1m1 0h3m1 0h1m2 0h4m2 0h1m2 0h1m3 0h1m1 0h3m1 0h1M1 4.5h1m1 0h3m1 0h1m3 0h1m1 0h2m4 0h3m1 0h1m1 0h3m1 0h1M1 5.5h1m1 0h3m1 0h1m1 0h1m3 0h4m3 0h1m2 0h1m1 0h3m1 0h1M1 6.5h1m5 0h1m2 0h4m1 0h7m1 0h1m5 0h1M1 7.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M11 8.5h2m3 0h1m1 0h3M1 9.5h1m1 0h1m1 0h1m1 0h1m3 0h1m1 0h1m2 0h3m1 0h2m3 0h1m2 0h1M1 10.5h1m1 0h1m6 0h1m2 0h2m2 0h2m2 0h1m1 0h1m2 0h1m2 0h1M1 11.5h1m4 0h3m2 0h3m1 0h1m1 0h3m2 0h3m2 0h3M4 12.5h1m3 0h1m2 0h5m2 0h1m2 0h2m1 0h1m3 0h1M2 13.5h2m1 0h4m3 0h1m2 0h1m2 0h2m1 0h4m1 0h1m1 0h2M1 14.5h3m1 0h1m2 0h1m1 0h1m2 0h1m1 0h1m1 0h1m3 0h3m2 0h1m2 0h1M1 15.5h2m4 0h2m1 0h1m1 0h3m3 0h1m2 0h1m1 0h2m1 0h1m1 0h2M4 16.5h1m3 0h2m2 0h2m3 0h2m2 0h1m3 0h2m1 0h1M1 17.5h2m2 0h9m3 0h2m1 0h2m1 0h1m2 0h1m1 0h2M2 18.5h1m2 0h1m5 0h4m2 0h1m5 0h1m2 0h2m1 0h1M1 19.5h1m2 0h1m2 0h4m4 0h1m3 0h1m1 0h1m1 0h2m3 0h2M2 20.5h5m2 0h2m1 0h1m1 0h6m4 0h3m1 0h1M1 21.5h1m1 0h3m1 0h1m3 0h2m2 0h1m2 0h1m2 0h5M9 22.5h1m2 0h1m2 0h1m1 0h1m3 0h1m3 0h1m1 0h3M1 23.5h7m3 0h1m1 0h2m2 0h2m1 0h2m1 0h1m1 0h2m1 0h2M1 24.5h1m5 0h1m4 0h2m2 0h1m1 0h4m3 0h2M1 25.5h1m1 0h3m1 0h1m1 0h2m1 0h1m3 0h4m1 0h5m2 0h2M1 26.5h1m1 0h3m1 0h1m3 0h1m1 0h1m3 0h1m2 0h1m1 0h1m1 0h2m1 0h3M1 27.5h1m1 0h3m1 0h1m1 0h4m1 0h1m3 0h1m3 0h1m1 0h3m2 0h1M1 28.5h1m5 0h1m4 0h1m1 0h1m3 0h2m1 0h3m1 0h1m2 0h1M1 29.5h7m1 0h3m1 0h3m1 0h2m2 0h3m1 0h2m1 0h2"/></svg></div>
+        <span>Наведите камеру телефона, чтобы открыть визитку</span>
       </div>
     </div>
   </section>
