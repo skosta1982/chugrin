@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowUpRight, Download, FileUp, GraduationCap, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, Check, Copy, Download, FileUp, GraduationCap, Mail, MapPin, Moon, Phone, Send, Sun } from "lucide-react";
 import { RESUME_STORAGE_KEY, type Resume } from "@/lib/resume";
 import { readStoredPhoto } from "@/lib/photo";
 import profilePhoto from "@/assets/resume-photo.jpg.asset.json";
@@ -132,6 +132,19 @@ const stats = [
   ["2 грамоты", "почётные награды РЖД (2017, 2022)"],
 ];
 
+const stack = [
+  { title: "Корпоративные системы", items: ["SAP ERP", "1С", "КриптоПро / ЭЦП", "МЧД"] },
+  { title: "Инфраструктура", items: ["Active Directory", "Windows Server", "VPN"] },
+  { title: "Связь и сети", items: ["Cisco", "IP-телефония / VoIP", "TCP/IP"] },
+  { title: "Управление инцидентами", items: ["Service Desk", "SLA", "Регламенты"] },
+];
+
+const principles = [
+  "Устраняю первопричину, а не только симптомы инцидента.",
+  "Говорю с пользователями и бизнесом на понятном языке, без лишнего жаргона.",
+  "Систематизирую опыт: регламенты и база знаний экономят время всей команде.",
+];
+
 function Index() {
   const [r, setR] = useState<Resume | null>(null);
   const [photo, setPhoto] = useState<string | null>(profilePhoto.url);
@@ -141,7 +154,26 @@ function Index() {
       if (raw) setR(JSON.parse(raw));
     } catch {}
     setPhoto(readStoredPhoto() ?? profilePhoto.url);
+    const saved = localStorage.getItem("theme");
+    const isDark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setDark(isDark);
+    document.documentElement.classList.toggle("dark", isDark);
   }, []);
+  const [dark, setDark] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const toggleTheme = () => {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.classList.toggle("dark", next);
+    localStorage.setItem("theme", next ? "dark" : "light");
+  };
+  const copyPhone = async () => {
+    try {
+      await navigator.clipboard.writeText(PHONE);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {}
+  };
   const name = r?.name || NAME;
   const [first, ...rest] = name.split(" ");
   const experience = r?.experience?.length ? r.experience : defaultExperience;
@@ -166,6 +198,14 @@ function Index() {
             Контакты
           </a>
         </nav>
+        <button
+          type="button"
+          onClick={toggleTheme}
+          aria-label={dark ? "Светлая тема" : "Тёмная тема"}
+          className="inline-flex size-9 items-center justify-center rounded-full border border-border transition-colors hover:bg-secondary"
+        >
+          {dark ? <Sun className="size-4" /> : <Moon className="size-4" />}
+        </button>
         <Link
           to="/upload"
           className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium transition-colors hover:bg-secondary"
@@ -357,6 +397,38 @@ function Index() {
         </div>}
       </section>
 
+      {/* Стек */}
+      <section className="border-t border-border bg-secondary/50">
+        <div className="mx-auto max-w-4xl px-6 py-20">
+          <h2 className="font-display text-3xl font-semibold tracking-tight">Ключевой стек и инструменты</h2>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            {stack.map((g) => (
+              <div key={g.title} className="rounded-2xl border border-border bg-card p-6">
+                <h3 className="mb-3 text-sm font-semibold tracking-wide uppercase text-muted-foreground">{g.title}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {g.items.map((s) => (
+                    <span key={s} className="rounded-md bg-secondary px-3 py-1.5 text-sm font-medium">{s}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Принципы */}
+      <section className="mx-auto max-w-4xl px-6 py-20">
+        <h2 className="font-display text-3xl font-semibold tracking-tight">Принципы работы</h2>
+        <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          {principles.map((p, i) => (
+            <div key={p} className="rounded-2xl border border-border bg-card p-6">
+              <div className="font-display text-3xl font-semibold text-muted-foreground">0{i + 1}</div>
+              <p className="mt-3 leading-relaxed">{p}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Контакты */}
       <section id="contacts" className="border-t border-border bg-primary text-primary-foreground">
         <div className="mx-auto max-w-4xl px-6 py-20 text-center">
@@ -382,6 +454,25 @@ function Index() {
               <Phone className="size-4" />
               {phone}
             </a>}
+          </div>
+          <div className="mt-4 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <a
+              href="https://t.me/Chuga_28"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-background px-6 py-3 text-sm font-medium text-foreground transition-opacity hover:opacity-90"
+            >
+              <Send className="size-4" />
+              Написать в Telegram
+            </a>
+            {phone && <button
+              type="button"
+              onClick={copyPhone}
+              className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/30 px-6 py-3 text-sm font-medium transition-colors hover:bg-primary-foreground/10"
+            >
+              {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
+              {copied ? "Номер скопирован" : "Скопировать телефон"}
+            </button>}
           </div>
           <div className="mt-6 flex items-center justify-center gap-2 text-sm text-primary-foreground/70">
             <MapPin className="size-4" />
