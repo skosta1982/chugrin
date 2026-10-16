@@ -7,7 +7,8 @@ import profilePhoto from "@/assets/resume-photo.jpg.asset.json";
 import resumePdf from "@/assets/resume.pdf.asset.json";
 
 const NAME = "Константин Чугрин";
-const TITLE = "Ведущий специалист технической поддержки · Инженер 2–3 линии";
+const TITLE = "Ведущий специалист технической поддержки";
+const SUBTITLE = "Инженер поддержки 2–3 линии · Координатор поддержки";
 const LOCATION = "Москва";
 const EMAIL = "skosta_m@mail.ru";
 const PHONE = "+7 (926) 357-34-95";
@@ -36,47 +37,69 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const defaultExperience = [
+const defaultExperience: { period: string; role: string; company: string; text: string; bullets?: string[] }[] = [
   {
     period: "2016 — 2026",
     role: "Ведущий специалист по сопровождению информационных систем",
     company: "АО «Центр корпоративного учёта и отчётности» (ОАО «РЖД»)",
-    text: "Техническая поддержка 1 500 пользователей финансово-учётных систем SAP. Автоматизировал регламентную отчётность (SAP + Excel), исключив ручную выгрузку для руководства. Курировал внедрение машиночитаемых доверенностей: сопроводил 50+ сотрудников. Настраивал защищённый документооборот с банками (ВТБ, Сбербанк). Внедрил инструкции по типовым обращениям, снизив повторные обращения. Зона ответственности выросла в 5 раз. Замещал заместителя начальника отдела, рекомендован в кадровый резерв РЖД на позицию начальника отдела. Награждён почётными грамотами (2017, 2022).",
+    text: "",
+    bullets: [
+      "Техническая поддержка 1 500+ пользователей финансово-учётных систем SAP",
+      "Автоматизировал регламентную отчётность (SAP + Excel) — исключил ручную выгрузку для руководства",
+      "Курировал внедрение машиночитаемых доверенностей, сопроводил 50+ сотрудников",
+      "Настроил защищённый документооборот с банками (ВТБ, Сбербанк)",
+      "Внедрил инструкции по типовым обращениям — снизил количество повторных обращений",
+      "Зона ответственности выросла в 5 раз; замещал заместителя начальника отдела",
+      "Рекомендован в кадровый резерв РЖД на позицию начальника отдела; почётные грамоты (2017, 2022)",
+    ],
   },
   {
     period: "2008 — 2016",
     role: "Менеджер эксплуатации сети",
     company: "ОАО «Транстелеком»",
-    text: "Эксплуатация и развитие телеком-инфраструктуры: настройка и диагностика оборудования Cisco, анализ логов, предотвращение сбоев. Разворачивал IP-телефонию (Cisco, Yealink, Audiocodes), администрировал СКУД BioSmart. Проводил техническую экспертизу оборудования перед закупкой.",
+    text: "",
+    bullets: [
+      "Эксплуатация и развитие телеком-инфраструктуры, диагностика оборудования Cisco",
+      "Анализ логов и предотвращение сбоев",
+      "Развёртывание IP-телефонии (Cisco, Yealink, Audiocodes), администрирование СКУД BioSmart",
+      "Техническая экспертиза оборудования перед закупкой",
+    ],
   },
   {
     period: "2007 — 2008",
     role: "Инженер по инсталляции",
     company: "ОАО «Транстелеком»",
-    text: "Полный цикл монтажных и пусконаладочных работ телекоммуникационной инфраструктуры: монтаж структурированных кабельных систем, ввод оборудования в эксплуатацию.",
+    text: "",
+    bullets: [
+      "Монтаж структурированных кабельных систем",
+      "Пусконаладка и ввод телеком-оборудования в эксплуатацию",
+    ],
   },
   {
     period: "2006 — 2007",
     role: "Технический специалист",
     company: "ООО «РТС Телеком»",
-    text: "Подключение и техническая поддержка клиентов по технологии WiMax. Проектирование и строительство компьютерных сетей полным циклом.",
+    text: "",
+    bullets: [
+      "Подключение и техподдержка клиентов по технологии WiMax",
+      "Проектирование и строительство компьютерных сетей полным циклом",
+    ],
   },
 ];
 
-const defaultSkills = [
-  "Поддержка 1–3 линии",
-  "Решение инцидентов и диагностика",
-  "Консультации пользователей",
-  "SAP — сопровождение",
-  "Электронный документооборот",
-  "Работа с заявками / Helpdesk",
-  "Координация с ИТ-командами и подрядчиками",
-  "Автоматизация отчётности (SAP + Excel)",
-  "Cisco / сетевые технологии",
-  "VoIP",
-  "Инструкции и документация",
-  "Наставничество и обучение",
-  "Английский — B1",
+const skillGroups = [
+  { title: "Инциденты и SLA", items: ["Поддержка 1–3 линии", "Диагностика и решение инцидентов", "Работа с заявками / Helpdesk"] },
+  { title: "Корпоративные системы", items: ["SAP — сопровождение", "Электронный документооборот", "Автоматизация отчётности (SAP + Excel)"] },
+  { title: "Сети и связь", items: ["Cisco / сетевые технологии", "VoIP / IP-телефония", "СКУД"] },
+  { title: "Координация и люди", items: ["Взаимодействие с ИТ-командами и подрядчиками", "Инструкции и документация", "Наставничество и обучение", "Английский — B1"] },
+];
+const defaultSkills = skillGroups.flatMap((g) => g.items);
+
+const achievements = [
+  ["×5", "рост зоны ответственности в РЖД"],
+  ["50+", "сотрудников сопровождено при внедрении МЧД"],
+  ["0", "ручных выгрузок после автоматизации отчётности"],
+  ["2 банка", "защищённый обмен с ВТБ и Сбербанком"],
 ];
 
 const education = [
@@ -106,6 +129,7 @@ const stats = [
   ["20 лет", "в технической поддержке и ИТ"],
   ["1 500+", "пользователей SAP на поддержке"],
   ["Резерв", "кадровый резерв руководителей РЖД"],
+  ["2 грамоты", "почётные награды РЖД (2017, 2022)"],
 ];
 
 function Index() {
@@ -170,6 +194,7 @@ function Index() {
         <p className="mb-4 text-sm font-medium tracking-widest text-accent-foreground uppercase">
           {r ? [r.title, r.location].filter(Boolean).join(" · ") : `${TITLE} · ${LOCATION}`}
         </p>
+        {!r && <p className="mb-6 -mt-2 text-sm text-muted-foreground">{SUBTITLE}</p>}
         <h1 className="font-display text-5xl leading-[1.05] font-semibold tracking-tight sm:text-7xl">
           {first}
           <br />
@@ -195,16 +220,32 @@ function Index() {
             Скачать PDF
           </a>
         </div>
+        <p className="mt-4 text-sm text-muted-foreground">
+          Открыт к предложениям в Москве: офис, гибридный или удалённый формат работы.
+        </p>
       </section>
 
       {/* Цифры */}
       {!r && <section className="border-y border-border bg-secondary/50">
-        <div className="mx-auto grid max-w-4xl grid-cols-3 divide-x divide-border px-6">
+        <div className="mx-auto grid max-w-4xl grid-cols-2 divide-border px-6 sm:grid-cols-4 sm:divide-x">
           {stats.map(([num, label]) => (
             <div key={label} className="py-10 text-center">
               <div className="font-display text-3xl font-semibold sm:text-4xl">
                 {num}
               </div>
+              <div className="mt-1 text-sm text-muted-foreground">{label}</div>
+            </div>
+          ))}
+        </div>
+      </section>}
+
+      {/* Достижения */}
+      {!r && <section className="mx-auto max-w-4xl px-6 pt-20">
+        <h2 className="font-display text-3xl font-semibold tracking-tight">Ключевые достижения</h2>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          {achievements.map(([num, label]) => (
+            <div key={label} className="rounded-2xl border border-border bg-card p-6">
+              <div className="font-display text-3xl font-semibold">{num}</div>
               <div className="mt-1 text-sm text-muted-foreground">{label}</div>
             </div>
           ))}
@@ -228,9 +269,18 @@ function Index() {
                 <div className="text-sm font-medium text-muted-foreground">
                   {job.company}
                 </div>
-                <p className="mt-3 leading-relaxed text-muted-foreground">
-                  {job.text}
-                </p>
+                {(job as { bullets?: string[] }).bullets ? (
+                  <ul className="mt-3 space-y-1.5 text-muted-foreground">
+                    {((job as { bullets?: string[] }).bullets ?? []).map((b) => (
+                      <li key={b} className="flex gap-3 leading-relaxed">
+                        <span className="mt-2.5 size-1.5 shrink-0 rounded-full bg-foreground/40" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="mt-3 leading-relaxed text-muted-foreground">{job.text}</p>
+                )}
               </div>
             </article>
           ))}
@@ -282,7 +332,20 @@ function Index() {
         <h2 className="font-display text-3xl font-semibold tracking-tight">
           Навыки
         </h2>
-        <div className="mt-8 flex flex-wrap gap-2">
+        {!r ? (
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            {skillGroups.map((g) => (
+              <div key={g.title}>
+                <h3 className="mb-3 text-sm font-semibold tracking-wide uppercase text-muted-foreground">{g.title}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {g.items.map((s) => (
+                    <span key={s} className="rounded-full border border-border bg-card px-4 py-2 text-sm">{s}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : <div className="mt-8 flex flex-wrap gap-2">
           {skills.map((s) => (
             <span
               key={s}
@@ -291,7 +354,7 @@ function Index() {
               {s}
             </span>
           ))}
-        </div>
+        </div>}
       </section>
 
       {/* Контакты */}
