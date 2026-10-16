@@ -269,9 +269,9 @@ function Index() {
                 <div className="text-sm font-medium text-muted-foreground">
                   {job.company}
                 </div>
-                {"bullets" in job && job.bullets ? (
+                {(job as { bullets?: string[] }).bullets ? (
                   <ul className="mt-3 space-y-1.5 text-muted-foreground">
-                    {job.bullets.map((b) => (
+                    {(job as { bullets: string[] }).bullets.map((b) => (
                       <li key={b} className="flex gap-3 leading-relaxed">
                         <span className="mt-2.5 size-1.5 shrink-0 rounded-full bg-foreground/40" />
                         {b}
