@@ -250,7 +250,7 @@ function Index() {
         <div className="mt-10 flex flex-wrap gap-3">
           <a
             href="#contacts"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift"
           >
             <Mail className="size-4" />
             Написать мне
@@ -258,7 +258,7 @@ function Index() {
           <a
             href={resumePdf.url}
             download="konstantin-chugrin-resume.pdf"
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-medium transition-colors hover:bg-secondary"
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-medium shadow-soft card-hover hover:bg-secondary"
           >
             <Download className="size-4" />
             Скачать PDF
@@ -288,7 +288,7 @@ function Index() {
         <h2 className="font-display text-3xl font-semibold tracking-tight">Ключевые достижения</h2>
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
           {achievements.map(([num, label]) => (
-            <div key={label} className="rounded-2xl border border-border bg-card p-6">
+            <div key={label} className="card-hover rounded-2xl border border-border bg-card p-6">
               <div className="font-display text-3xl font-semibold">{num}</div>
               <div className="mt-1 text-sm text-muted-foreground">{label}</div>
             </div>
@@ -383,7 +383,7 @@ function Index() {
                 <h3 className="mb-3 text-sm font-semibold tracking-wide uppercase text-muted-foreground">{g.title}</h3>
                 <div className="flex flex-wrap gap-2">
                   {g.items.map((s) => (
-                    <span key={s} className="rounded-full border border-border bg-card px-4 py-2 text-sm">{s}</span>
+                    <span key={s} className="rounded-full border border-border bg-card px-4 py-2 text-sm transition-colors duration-200 hover:border-foreground/25 hover:bg-secondary">{s}</span>
                   ))}
                 </div>
               </div>
@@ -407,11 +407,11 @@ function Index() {
           <h2 className="font-display text-3xl font-semibold tracking-tight">Ключевой стек и инструменты</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {stack.map((g) => (
-              <div key={g.title} className="rounded-2xl border border-border bg-card p-6">
+              <div key={g.title} className="card-hover rounded-2xl border border-border bg-card p-6">
                 <h3 className="mb-3 text-sm font-semibold tracking-wide uppercase text-muted-foreground">{g.title}</h3>
                 <div className="flex flex-wrap gap-2">
                   {g.items.map((s) => (
-                    <span key={s} className="rounded-md bg-secondary px-3 py-1.5 text-sm font-medium">{s}</span>
+                    <span key={s} className="rounded-md bg-secondary px-3 py-1.5 text-sm font-medium transition-colors duration-200 hover:bg-foreground/10">{s}</span>
                   ))}
                 </div>
               </div>
@@ -425,7 +425,7 @@ function Index() {
         <h2 className="font-display text-3xl font-semibold tracking-tight">Принципы работы</h2>
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
           {principles.map((p, i) => (
-            <div key={p} className="rounded-2xl border border-border bg-card p-6">
+            <div key={p} className="card-hover rounded-2xl border border-border bg-card p-6">
               <div className="font-display text-3xl font-semibold text-muted-foreground">0{i + 1}</div>
               <p className="mt-3 leading-relaxed">{p}</p>
             </div>
