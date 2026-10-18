@@ -5,3 +5,5 @@
 - [x] Add the supplied portrait to the shared site
 - [x] Replace demo content with the supplied resume, highlight achievements, add education and a working PDF download
 - [x] Verify the shared resume and portrait on desktop and mobile
+- [x] Keep the full name (with patronymic) inside the page edges on phone screens
+

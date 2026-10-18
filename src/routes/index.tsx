@@ -239,7 +239,7 @@ function Index() {
           {r ? [r.title, r.location].filter(Boolean).join(" · ") : `${TITLE} · ${LOCATION}`}
         </p>
         {!r && <p className="mb-6 -mt-2 text-sm text-muted-foreground">{SUBTITLE}</p>}
-        <h1 className="font-display text-5xl leading-[1.05] font-semibold tracking-tight sm:text-7xl">
+        <h1 className="font-display text-[clamp(2.05rem,10.5vw,4.5rem)] leading-[1.05] font-semibold tracking-tight [overflow-wrap:anywhere] sm:text-7xl">
           {first}
           <br />
           {rest.join(" ")}
