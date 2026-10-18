@@ -228,9 +228,13 @@ function Index() {
           <img
             src={photo}
             alt={name}
-            className="mb-8 size-28 rounded-full object-cover shadow-sm ring-1 ring-border sm:size-36"
+            className="mb-5 size-28 rounded-full object-cover shadow-sm ring-1 ring-border sm:size-36"
           />
         )}
+        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-success/30 bg-success/10 px-4 py-1.5 text-sm font-medium text-success">
+          <span className="size-2 rounded-full bg-success" />
+          Открыт к предложениям · Москва / Любой формат
+        </div>
         <p className="mb-4 text-sm font-medium tracking-widest text-accent-foreground uppercase">
           {r ? [r.title, r.location].filter(Boolean).join(" · ") : `${TITLE} · ${LOCATION}`}
         </p>
@@ -477,6 +481,16 @@ function Index() {
           <div className="mt-6 flex items-center justify-center gap-2 text-sm text-primary-foreground/70">
             <MapPin className="size-4" />
             {r ? r.location : "Москва · Любой формат: офис, гибрид или удалённо"}
+          </div>
+          <div className="mt-4 flex justify-center">
+            <a
+              href={resumePdf.url}
+              download="konstantin-chugrin-resume.pdf"
+              className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/30 px-6 py-3 text-sm font-medium transition-colors hover:bg-primary-foreground/10"
+            >
+              <Download className="size-4" />
+              Скачать резюме (PDF)
+            </a>
           </div>
         </div>
       </section>
