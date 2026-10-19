@@ -1,60 +1,73 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Константин Чугрин — Ведущий специалист технической поддержки</title>
-  <meta name="description" content="Резюме: Константин Чугрин, ведущий специалист технической поддержки, инженер 2–3 линии. 20 лет опыта (РЖД, Транстелеком).">
+  <title>Чугрин Константин Александрович — Ведущий специалист технической поддержки</title>
+  <meta name="description" content="Резюме: Чугрин Константин Александрович. Ведущий специалист технической поддержки, инженер сопровождения 2–3 линии. 20 лет опыта (РЖД, Транстелеком).">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    /* Переменные для светлой и тёмной темы */
     :root {
-      --bg: #f8fafc;
+      /* Светлая тема: выраженные блоки, контрастные границы, глубокий текст */
+      --bg: #eef2f6;
       --card-bg: #ffffff;
-      --card-subtle: #f1f5f9;
-      --border: #e2e8f0;
+      --card-subtle: #f8fafc;
+      --border: #cbd5e1;
+      --border-accent: #94a3b8;
       --text: #0f172a;
-      --text-muted: #64748b;
+      --text-muted: #475569;
       --primary: #0284c7;
       --primary-hover: #0369a1;
       --primary-subtle: #e0f2fe;
-      --success: #16a34a;
+      --primary-text: #ffffff;
+      --success: #15803d;
       --success-subtle: #dcfce7;
       --tag-bg: #e2e8f0;
-      --tag-text: #334155;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+      --tag-text: #1e293b;
+      --tag-border: #cbd5e1;
+      --shadow: 0 4px 10px rgba(15, 23, 42, 0.07), 0 1px 3px rgba(15, 23, 42, 0.05);
+      --shadow-lg: 0 14px 28px -4px rgba(15, 23, 42, 0.12), 0 6px 12px -3px rgba(15, 23, 42, 0.06);
     }
+
     html.dark {
-      --bg: #090d16;
+      /* Тёмная тема: глубокий графит, мягкие неоновые акценты */
+      --bg: #0a0f1d;
       --card-bg: #111827;
-      --card-subtle: #1f2937;
-      --border: #1f2937;
-      --text: #f9fafb;
-      --text-muted: #9ca3af;
+      --card-subtle: #1a2234;
+      --border: #243048;
+      --border-accent: #3b82f6;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
       --primary: #38bdf8;
       --primary-hover: #0ea5e9;
       --primary-subtle: #082f49;
+      --primary-text: #04121e;
       --success: #22c55e;
-      --success-subtle: #052e16;
-      --tag-bg: #1f2937;
-      --tag-text: #d1d5db;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+      --success-subtle: rgba(34, 197, 94, 0.15);
+      --tag-bg: #1a2234;
+      --tag-text: #e2e8f0;
+      --tag-border: #243048;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+      --shadow-lg: 0 14px 30px rgba(0, 0, 0, 0.55);
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg);
+      background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
       min-height: 100vh;
-      transition: background 0.25s ease, color 0.25s ease;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      -webkit-font-smoothing: antialiased;
     }
+
     .container {
-      max-width: 1000px;
+      max-width: 960px;
       margin: 0 auto;
       padding: 0 1.25rem;
     }
@@ -67,11 +80,11 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: var(--bg);
+      background: var(--card-bg);
       border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
       padding: 0.75rem 0;
-      transition: border-color 0.25s ease, background 0.25s ease;
+      transition: all 0.25s ease;
     }
     .top-bar-inner {
       display: flex;
@@ -84,26 +97,27 @@
       color: var(--text);
     }
     .theme-toggle {
-      background: var(--card-bg);
+      background: var(--card-subtle);
       border: 1px solid var(--border);
       color: var(--text);
-      padding: 0.45rem 0.85rem;
+      padding: 0.45rem 0.9rem;
       border-radius: 9999px;
       font-size: 0.85rem;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      font-weight: 500;
+      gap: 0.45rem;
+      font-weight: 600;
       transition: all 0.2s ease;
     }
     .theme-toggle:hover {
       border-color: var(--primary);
+      transform: translateY(-1px);
     }
 
     /* Первый экран */
     .hero {
-      padding: 3rem 0 3.5rem;
+      padding: 3rem 0 2.5rem;
       text-align: center;
     }
     .avatar-wrapper {
@@ -112,16 +126,18 @@
       margin-bottom: 1.25rem;
     }
     .avatar {
-      width: 150px;
-      height: 150px;
+      width: 155px;
+      height: 155px;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid var(--card-bg);
       box-shadow: var(--shadow-lg);
+      display: block;
     }
     @media (min-width: 640px) {
-      .avatar { width: 170px; height: 170px; }
+      .avatar { width: 175px; height: 175px; }
     }
+
     .status-badge {
       display: inline-flex;
       align-items: center;
@@ -129,11 +145,12 @@
       background: var(--success-subtle);
       color: var(--success);
       border: 1px solid var(--success);
-      padding: 0.35rem 0.9rem;
+      padding: 0.4rem 1rem;
       border-radius: 9999px;
       font-size: 0.85rem;
       font-weight: 600;
       margin-bottom: 1.25rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     }
     .pulse-dot {
       width: 8px;
@@ -148,19 +165,21 @@
       70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
       100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
     }
+
     h1 {
-      font-size: clamp(2rem, 9vw, 3.5rem);
+      font-size: clamp(1.85rem, 6.5vw, 3rem);
       font-weight: 800;
       line-height: 1.15;
       letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
       overflow-wrap: anywhere;
+      word-break: normal;
     }
     .hero-title {
-      font-size: 1.15rem;
-      font-weight: 600;
+      font-size: 1.25rem;
+      font-weight: 700;
       color: var(--primary);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.35rem;
     }
     .hero-subtitle {
       font-size: 0.95rem;
@@ -168,97 +187,130 @@
       margin-bottom: 1.25rem;
     }
     .hero-summary {
-      max-width: 700px;
+      max-width: 760px;
       margin: 0 auto 1.75rem;
       font-size: 1rem;
-      color: var(--text-muted);
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 0.875rem;
+      padding: 1.15rem 1.4rem;
+      box-shadow: var(--shadow);
+      text-align: left;
     }
+
     .hero-buttons {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 0.75rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2.25rem;
     }
+
+    /* Кнопки */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
-      padding: 0.7rem 1.4rem;
+      padding: 0.7rem 1.25rem;
       border-radius: 0.6rem;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 600;
       text-decoration: none;
       cursor: pointer;
-      border: none;
+      border: 1px solid transparent;
       transition: all 0.2s ease;
+      white-space: nowrap;
     }
     .btn-primary {
       background: var(--primary);
-      color: #ffffff !important;
+      color: var(--primary-text);
+      box-shadow: var(--shadow);
     }
     .btn-primary:hover {
       background: var(--primary-hover);
       transform: translateY(-1px);
+      box-shadow: var(--shadow-lg);
     }
-    .btn-secondary {
+    .btn-telegram {
+      background: #0284c7;
+      color: #ffffff;
+      box-shadow: var(--shadow);
+    }
+    .btn-telegram:hover {
+      background: #0369a1;
+      transform: translateY(-1px);
+    }
+    .btn-outline {
       background: var(--card-bg);
       color: var(--text);
       border: 1px solid var(--border);
+      box-shadow: var(--shadow);
     }
-    .btn-secondary:hover {
+    .btn-outline:hover {
       border-color: var(--primary);
+      color: var(--primary);
       transform: translateY(-1px);
     }
 
-    /* Статистика */
+    /* Цифры и показатели */
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.75rem;
-      max-width: 760px;
-      margin: 0 auto;
+      gap: 0.85rem;
+      margin-top: 1rem;
     }
     @media (min-width: 640px) {
-      .stats-grid { grid-template-columns: repeat(4, 1fr); }
+      .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+      }
     }
     .stat-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 0.75rem;
-      padding: 1.25rem 1rem;
+      padding: 1.2rem 1rem;
+      text-align: center;
       box-shadow: var(--shadow);
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
-    .stat-val {
-      font-size: 1.6rem;
+    .stat-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+    .stat-num {
+      font-size: 1.75rem;
       font-weight: 800;
       color: var(--primary);
-      line-height: 1.2;
+      line-height: 1.1;
+      margin-bottom: 0.3rem;
     }
     .stat-label {
       font-size: 0.8rem;
       color: var(--text-muted);
-      margin-top: 0.25rem;
+      font-weight: 500;
+      line-height: 1.35;
     }
 
     /* Секции */
     .section {
-      padding: 2.5rem 0;
-      border-top: 1px solid var(--border);
+      padding: 2.25rem 0;
     }
     .section-title {
-      font-size: 1.4rem;
-      font-weight: 700;
+      font-size: 1.45rem;
+      font-weight: 800;
       margin-bottom: 0.35rem;
     }
     .section-subtitle {
       font-size: 0.9rem;
       color: var(--text-muted);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
-    /* Карточки достижений */
+    /* Достижения */
     .achievements-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -270,39 +322,52 @@
     .ach-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
       border-radius: 0.75rem;
       padding: 1.25rem;
       box-shadow: var(--shadow);
-      border-left: 4px solid var(--primary);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .ach-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
     }
     .ach-card h3 {
       font-size: 1rem;
       font-weight: 700;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.4rem;
+      color: var(--text);
     }
     .ach-card p {
       font-size: 0.9rem;
       color: var(--text-muted);
+      line-height: 1.55;
     }
 
-    /* Опыт работы */
+    /* Карточки опыта работы */
     .timeline {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
     .timeline-item {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 0.75rem;
+      border-radius: 0.875rem;
       padding: 1.5rem;
       box-shadow: var(--shadow);
+      transition: border-color 0.2s ease;
+    }
+    .timeline-item:hover {
+      border-color: var(--border-accent);
     }
     .timeline-header {
       display: flex;
       flex-direction: column;
-      gap: 0.25rem;
-      margin-bottom: 0.75rem;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--border);
     }
     @media (min-width: 640px) {
       .timeline-header {
@@ -312,37 +377,31 @@
       }
     }
     .timeline-role {
-      font-size: 1.1rem;
-      font-weight: 700;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text);
     }
     .timeline-company {
+      font-size: 0.95rem;
       font-weight: 600;
       color: var(--primary);
+      margin-top: 0.15rem;
     }
     .timeline-date {
-      font-size: 0.85rem;
+      display: inline-block;
+      align-self: flex-start;
+      background: var(--card-subtle);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
       color: var(--text-muted);
     }
-    .timeline-bullets {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-    }
-    .timeline-bullets li {
-      font-size: 0.9rem;
+    .timeline-text {
+      font-size: 0.935rem;
+      line-height: 1.65;
       color: var(--text);
-      position: relative;
-      padding-left: 1.2rem;
-    }
-    .timeline-bullets li::before {
-      content: "•";
-      color: var(--primary);
-      position: absolute;
-      left: 0;
-      font-size: 1.2rem;
-      line-height: 1;
-      top: -0.05rem;
     }
 
     /* Стек и инструменты */
@@ -365,343 +424,382 @@
       font-size: 0.95rem;
       font-weight: 700;
       margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      color: var(--text);
     }
     .tags-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
+      gap: 0.45rem;
     }
     .tag {
       background: var(--tag-bg);
       color: var(--tag-text);
+      border: 1px solid var(--tag-border);
       font-size: 0.8rem;
       font-weight: 500;
       padding: 0.3rem 0.65rem;
-      border-radius: 0.4rem;
+      border-radius: 0.45rem;
+      transition: border-color 0.15s ease;
+    }
+    .tag:hover {
+      border-color: var(--primary);
     }
 
-    /* Принципы работы */
-    .principles-grid {
+    /* Образование и курсы */
+    .edu-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 1rem;
     }
     @media (min-width: 640px) {
-      .principles-grid { grid-template-columns: repeat(3, 1fr); }
+      .edu-grid { grid-template-columns: repeat(2, 1fr); }
     }
-    .principle-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 0.75rem;
-      padding: 1.25rem;
-      box-shadow: var(--shadow);
-    }
-    .principle-num {
-      display: inline-block;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--primary);
-      background: var(--primary-subtle);
-      width: 26px;
-      height: 26px;
-      line-height: 26px;
-      text-align: center;
-      border-radius: 50%;
-      margin-bottom: 0.5rem;
-    }
-    .principle-card h3 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 0.35rem;
-    }
-    .principle-card p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    /* Образование */
     .edu-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 0.75rem;
       padding: 1.25rem;
-      margin-bottom: 0.75rem;
       box-shadow: var(--shadow);
     }
-    .edu-title { font-weight: 700; font-size: 0.95rem; }
-    .edu-meta { font-size: 0.85rem; color: var(--text-muted); }
-
-    /* Контакты внизу */
-    .contacts-box {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 1rem;
-      padding: 2.25rem 1.25rem;
-      text-align: center;
-      box-shadow: var(--shadow-lg);
-      margin-bottom: 3rem;
+    .edu-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      color: var(--text);
     }
-    .contacts-box h2 {
-      font-size: 1.5rem;
+    .edu-card .edu-org {
+      font-size: 0.9rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .edu-card .edu-year {
+      font-size: 0.8rem;
+      color: var(--text-muted);
       margin-bottom: 0.4rem;
     }
-    .contacts-subtitle {
+    .courses-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-top: 0.5rem;
+    }
+    .courses-list li {
+      font-size: 0.875rem;
+      color: var(--text);
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px dashed var(--border);
+    }
+    .courses-list li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .course-year {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* Контакты */
+    .contact-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 0.875rem;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+    }
+    .contact-card h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+    .contact-desc {
       font-size: 0.95rem;
       color: var(--text-muted);
-      margin-bottom: 1.5rem;
+      max-width: 550px;
+      margin: 0 auto 1.5rem;
     }
-    .contacts-buttons {
+    .contact-buttons {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 0.75rem;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
     }
-    .location-note {
-      font-size: 0.85rem;
+    .contact-location {
+      font-size: 0.9rem;
       color: var(--text-muted);
+      font-weight: 500;
       margin-top: 1rem;
-    }
-    .copy-toast {
-      position: fixed;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--text);
-      color: var(--bg);
-      padding: 0.6rem 1.2rem;
-      border-radius: 9999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      box-shadow: var(--shadow-lg);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s ease;
-      z-index: 100;
-    }
-    .copy-toast.show { opacity: 1; }
-
-    footer {
-      text-align: center;
-      padding: 1.5rem 0 3rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
+      padding-top: 1rem;
       border-top: 1px solid var(--border);
+    }
+
+    /* Подвал */
+    footer {
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #0f172a;
+      color: #ffffff;
+      padding: 0.75rem 1.4rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      z-index: 1000;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
     }
   </style>
 </head>
 <body>
 
-  <!-- Верхняя полоса -->
+  <!-- Верхняя панель -->
   <header class="top-bar">
     <div class="container top-bar-inner">
-      <div class="logo-text">Константин Чугрин</div>
-      <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()" aria-label="Сменить тему">
-        <span id="themeIcon">🌙</span> <span id="themeLabel">Тёмная тема</span>
+      <div class="logo-text">
+        <span>Константин Чугрин</span>
+      </div>
+      <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()" aria-label="Сменить тему">
+        <span id="theme-icon">☀️</span>
+        <span id="theme-text">Светлая тема</span>
       </button>
     </div>
   </header>
 
   <main class="container">
+
     <!-- Первый экран -->
     <section class="hero">
       <div class="avatar-wrapper">
-        <img class="avatar" src="https://chugrin.lovable.app/assets/resume-photo.jpg" alt="Константин Чугрин">
+        <img
+          src="https://chugrin.lovable.app/__l5e/assets-v1/b0dadf91-ae06-4e24-add6-9f8e9ce97573/resume-photo.jpg"
+          alt="Чугрин Константин Александрович"
+          class="avatar"
+          width="175"
+          height="175"
+          onerror="this.style.display='none'"
+        >
       </div>
-      <br>
-      <div class="status-badge">
-        <span class="pulse-dot"></span>
-        Открыт к предложениям · Москва / Любой формат
+
+      <div>
+        <div class="status-badge">
+          <span class="pulse-dot"></span>
+          <span>Открыт к предложениям · Москва</span>
+        </div>
       </div>
 
       <h1>Чугрин<br>Константин Александрович</h1>
-      <div class="hero-title">Ведущий специалист технической поддержки · Инженер 2–3 линии</div>
-      <div class="hero-subtitle">Координатор поддержки · 20 лет практического опыта</div>
+      <div class="hero-title">Ведущий специалист технической поддержки</div>
+      <div class="hero-subtitle">Инженер сопровождения 2–3 линии · Координатор поддержки</div>
 
-      <p class="hero-summary">
-        Сопровождение критически важных корпоративных систем и ERP (SAP ERP, 1С, электронный документооборот, МЧД). Опыт координации поддержки свыше 1 500 пользователей и филиалов, обучение инженеров 1-й линии, регламентация процессов и минимизация времени простоя инфраструктуры.
-      </p>
+      <div class="hero-summary">
+        Технический специалист с 20-летним опытом в IT-поддержке и сопровождении корпоративных систем федерального масштаба (РЖД, Транстелеком). Рекомендован в кадровый резерв РЖД на позицию начальника отдела. Рассматриваю позиции ведущего специалиста или руководителя группы технической поддержки.
+      </div>
 
       <div class="hero-buttons">
-        <a class="btn btn-primary" href="https://t.me/Chuga_28" target="_blank" rel="noopener">
-          ✈️ Написать в Telegram
+        <a href="https://t.me/Chuga_28" target="_blank" rel="noopener noreferrer" class="btn btn-telegram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+          Написать в Telegram
         </a>
-        <button class="btn btn-secondary" onclick="copyPhone('+79263573495')">
-          📋 Скопировать телефон
+        <button onclick="copyPhone()" class="btn btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+          Скопировать телефон
         </button>
-        <a class="btn btn-secondary" href="https://chugrin.lovable.app/assets/resume.pdf" download="konstantin-chugrin-resume.pdf">
-          📥 Скачать резюме (PDF)
+        <a href="mailto:skosta_m@mail.ru" class="btn btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          skosta_m@mail.ru
+        </a>
+        <a href="https://chugrin.lovable.app/__l5e/assets-v1/5efe2d8c-60b2-481d-9c15-0668f0806ad2/konstantin-chugrin-resume.pdf" target="_blank" class="btn btn-primary" download>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+          Скачать резюме (PDF)
         </a>
       </div>
 
-      <!-- Ключевые цифры -->
+      <!-- Ключевые показатели -->
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-val">20 лет</div>
-          <div class="stat-label">Опыт в поддержке IT</div>
+          <div class="stat-num">20 лет</div>
+          <div class="stat-label">Опыт в IT-поддержке и инфраструктуре</div>
         </div>
         <div class="stat-card">
-          <div class="stat-val">1 500+</div>
-          <div class="stat-label">Пользователей SAP ERP</div>
+          <div class="stat-num">1 500+</div>
+          <div class="stat-label">Пользователей на сопровождении (SAP)</div>
         </div>
         <div class="stat-card">
-          <div class="stat-val">Кадровый резерв</div>
-          <div class="stat-label">Руководителей в РЖД</div>
+          <div class="stat-num">×5</div>
+          <div class="stat-label">Рост зоны ответственности в РЖД</div>
         </div>
         <div class="stat-card">
-          <div class="stat-val">2 грамоты</div>
-          <div class="stat-label">От руководства компании</div>
+          <div class="stat-num">Резерв</div>
+          <div class="stat-label">Рекомендован в кадровый резерв начальника отдела</div>
         </div>
       </div>
     </section>
 
-    <!-- Достижения -->
+    <!-- Ключевые достижения -->
     <section class="section">
       <h2 class="section-title">Ключевые достижения</h2>
-      <p class="section-subtitle">Измеримые результаты работы в федеральных структурах</p>
+      <div class="section-subtitle">Результаты работы в корпоративных системах федерального масштаба</div>
       <div class="achievements-grid">
         <div class="ach-card">
-          <h3>Бесперебойная поддержка 1 500+ пользователей</h3>
-          <p>Обеспечил непрерывное функционирование модулей SAP ERP (FI/CO, MM, SD) для филиалов и подразделений без срыва сроков закрытия периодов.</p>
+          <h3>Поддержка 1 500+ пользователей SAP</h3>
+          <p>Обеспечивал бесперебойное сопровождение финансово-учётных систем РЖД, снижал число повторных инцидентов через внедрение типовых регламентов.</p>
         </div>
         <div class="ach-card">
-          <h3>Внедрение МЧД и криптографических средств</h3>
-          <p>Организовал сквозную работу с машиночитаемыми доверенностями для 50+ ответственных сотрудников и интеграцию с банковскими шлюзами ВТБ и Сбербанк.</p>
+          <h3>Автоматизация регулярной отчётности</h3>
+          <p>Связал выгрузки SAP с аналитическими шаблонами Excel, полностью исключив ручную подготовку сводок для руководства.</p>
         </div>
         <div class="ach-card">
-          <h3>Автоматизация аналитики и отчётности</h3>
-          <p>Разработал макросы и скрипты автоматической сверки данных реестров, сократив рутинную трудоёмкость закрытия периода на 30%.</p>
+          <h3>Внедрение МЧД и банковского ЭДО</h3>
+          <p>Курировал внедрение машиночитаемых доверенностей для 50+ сотрудников, настраивал защищённый обмен с ВТБ и Сбербанком.</p>
         </div>
         <div class="ach-card">
-          <h3>Кадровый резерв и наставничество</h3>
-          <p>Зачислен в резерв руководящего состава РЖД; обучил и ввёл в рабочий процесс более 10 инженеров и координаторов 1–2 линий поддержки.</p>
+          <h3>Кадровый резерв и признание</h3>
+          <p>Замещал зам. начальника отдела, рекомендован в резерв на должность руководителя, награждён почётными грамотами (2017, 2022).</p>
         </div>
       </div>
     </section>
 
-    <!-- Стек и инструменты -->
+    <!-- Опыт работы (полный оригинальный текст) -->
     <section class="section">
-      <h2 class="section-title">Ключевой стек и инструменты</h2>
-      <p class="section-subtitle">Технологии и программное обеспечение в ежедневной практике</p>
+      <h2 class="section-title">Опыт работы</h2>
+      <div class="section-subtitle">20 лет непрерывной практики в ведущих корпорациях России</div>
+
+      <div class="timeline">
+
+        <!-- РЖД -->
+        <article class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Ведущий специалист по сопровождению информационных систем</div>
+              <div class="timeline-company">АО «Центр корпоративного учёта и отчётности» (ОАО «РЖД»)</div>
+            </div>
+            <div class="timeline-date">2016 — 2026 (10 лет)</div>
+          </div>
+          <p class="timeline-text">
+            Техническая поддержка 1 500 пользователей финансово-учётных систем SAP. Автоматизировал регламентную отчётность (SAP + Excel), исключив ручную выгрузку для руководства. Курировал внедрение машиночитаемых доверенностей: сопроводил 50+ сотрудников. Настраивал защищённый документооборот с банками (ВТБ, Сбербанк). Внедрил инструкции по типовым обращениям, снизив повторные обращения. Зона ответственности выросла в 5 раз. Замещал заместителя начальника отдела, рекомендован в кадровый резерв РЖД на позицию начальника отдела. Награждён почётными грамотами (2017, 2022).
+          </p>
+        </article>
+
+        <!-- Транстелеком Менеджер -->
+        <article class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Менеджер эксплуатации сети</div>
+              <div class="timeline-company">ОАО «Транстелеком»</div>
+            </div>
+            <div class="timeline-date">2008 — 2016 (8 лет)</div>
+          </div>
+          <p class="timeline-text">
+            Эксплуатация и развитие телеком-инфраструктуры: настройка и диагностика оборудования Cisco, анализ логов, предотвращение сбоев. Разворачивал IP-телефонию (Cisco, Yealink, Audiocodes), администрировал СКУД BioSmart. Проводил техническую экспертизу оборудования перед закупкой.
+          </p>
+        </article>
+
+        <!-- Транстелеком Инженер -->
+        <article class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Инженер по инсталляции</div>
+              <div class="timeline-company">ОАО «Транстелеком»</div>
+            </div>
+            <div class="timeline-date">2007 — 2008 (1 год)</div>
+          </div>
+          <p class="timeline-text">
+            Полный цикл монтажных и пусконаладочных работ телекоммуникационной инфраструктуры: монтаж структурированных кабельных систем, ввод оборудования в эксплуатацию.
+          </p>
+        </article>
+
+        <!-- РТС Телеком -->
+        <article class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Технический специалист</div>
+              <div class="timeline-company">ООО «РТС Телеком»</div>
+            </div>
+            <div class="timeline-date">2006 — 2007 (1 год)</div>
+          </div>
+          <p class="timeline-text">
+            Подключение и техническая поддержка клиентов по технологии WiMax. Проектирование и строительство компьютерных сетей полным циклом.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Стек и навыки -->
+    <section class="section">
+      <h2 class="section-title">Стек и ключевые навыки</h2>
+      <div class="section-subtitle">Инструменты, технологии и экспертиза</div>
+
       <div class="stack-grid">
         <div class="stack-card">
-          <h3>🏢 Корпоративные системы</h3>
+          <h3>Корпоративные системы</h3>
           <div class="tags-container">
-            <span class="tag">SAP ERP (FI, CO, MM, SD)</span>
-            <span class="tag">1С:Предприятие 8.x</span>
-            <span class="tag">СЭД / ЭДО Диадок</span>
-            <span class="tag">МЧД</span>
-            <span class="tag">Банк-Клиент (ВТБ, Сбер)</span>
-          </div>
-        </div>
-        <div class="stack-card">
-          <h3>⚙️ Инфраструктура и безопасность</h3>
-          <div class="tags-container">
+            <span class="tag">SAP ERP / финансовые модули</span>
             <span class="tag">Active Directory</span>
-            <span class="tag">КриптоПро CSP</span>
-            <span class="tag">Рутокен / JaCarta</span>
-            <span class="tag">ЭЦП / Сертификаты</span>
-            <span class="tag">VLAN & Сетевые принтеры</span>
-          </div>
-        </div>
-        <div class="stack-card">
-          <h3>📞 Связь и удалённый доступ</h3>
-          <div class="tags-container">
-            <span class="tag">SIP-телефония</span>
-            <span class="tag">Avaya / Asterisk</span>
-            <span class="tag">RDP / VPN</span>
-            <span class="tag">AnyDesk / TeamViewer</span>
-            <span class="tag">Шлюзы связи</span>
-          </div>
-        </div>
-        <div class="stack-card">
-          <h3>📋 Управление инцидентами</h3>
-          <div class="tags-container">
             <span class="tag">Service Desk / Helpdesk</span>
-            <span class="tag">Контроль SLA</span>
-            <span class="tag">2–3 линия эскалации</span>
-            <span class="tag">Базы знаний (Wiki)</span>
-            <span class="tag">Анализ первопричин (RCA)</span>
+            <span class="tag">СКУД BioSmart</span>
+            <span class="tag">ЭЦП и МЧД</span>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Принципы работы -->
-    <section class="section">
-      <h2 class="section-title">Принципы работы</h2>
-      <p class="section-subtitle">Подход к решению задач и взаимодействию с бизнесом</p>
-      <div class="principles-grid">
-        <div class="principle-card">
-          <span class="principle-num">1</span>
-          <h3>Устраняю первопричину</h3>
-          <p>Не просто перезапускаю сервис или переустанавливаю сертификат, а нахожу корень сбоя, чтобы инцидент не повторялся снова.</p>
-        </div>
-        <div class="principle-card">
-          <span class="principle-num">2</span>
-          <h3>Без сложного жаргона</h3>
-          <p>С бухгалтерами, юристами и топ-менеджментом говорю на простом языке задачи, экономя время и нервы пользователей.</p>
-        </div>
-        <div class="principle-card">
-          <span class="principle-num">3</span>
-          <h3>База знаний и регламенты</h3>
-          <p>Каждое нестандартное решение описываю в виде инструкции — это снижает нагрузку на команду и ускоряет ввод новичков.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Опыт работы -->
-    <section class="section">
-      <h2 class="section-title">Опыт работы (20 лет)</h2>
-      <p class="section-subtitle">Карьерный путь в телекоммуникационных и транспортных гигантах</p>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-header">
-            <div>
-              <div class="timeline-role">Ведущий специалист технической поддержки</div>
-              <div class="timeline-company">ОАО «РЖД» (Центр корпоративного учёта)</div>
-            </div>
-            <div class="timeline-date">Май 2016 — настоящее время (10 лет)</div>
+        <div class="stack-card">
+          <h3>Телеком и сетевое оборудование</h3>
+          <div class="tags-container">
+            <span class="tag">Cisco (маршрутизаторы/коммутаторы)</span>
+            <span class="tag">IP-телефония (VoIP)</span>
+            <span class="tag">Yealink / Audiocodes</span>
+            <span class="tag">WiMax</span>
+            <span class="tag">СКС и пусконаладка</span>
           </div>
-          <ul class="timeline-bullets">
-            <li>Сопровождение более 1 500 пользователей в системе SAP ERP; оперативное закрытие инцидентов 2–3 линии.</li>
-            <li>Администрирование электронных цифровых подписей (КриптоПро CSP), выпуск и внедрение машиночитаемых доверенностей (МЧД).</li>
-            <li>Взаимодействие со смежными линиями разработки и вендорами при обновлении корпоративных релизов.</li>
-            <li>Автоматизация рутинных отчётов бухгалтерии, обучение персонала филиальной сети.</li>
-            <li>Включён в кадровый резерв на руководящие должности; награждён двумя почётными грамотами.</li>
-          </ul>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-header">
-            <div>
-              <div class="timeline-role">Инженер технической поддержки</div>
-              <div class="timeline-company">ЗАО «Компания ТрансТелеКом» (ТТК)</div>
-            </div>
-            <div class="timeline-date">Апрель 2008 — Май 2016 (8 лет 2 месяца)</div>
+        <div class="stack-card">
+          <h3>Анализ данных и ПО</h3>
+          <div class="tags-container">
+            <span class="tag">MS Excel (сложные формулы, сводные)</span>
+            <span class="tag">Автоматизация отчётности</span>
+            <span class="tag">Диагностика и ремонт ПК</span>
+            <span class="tag">Банковский ЭДО (ВТБ, Сбер)</span>
           </div>
-          <ul class="timeline-bullets">
-            <li>Техническое сопровождение магистральных корпоративных клиентов и региональных филиалов оператора связи.</li>
-            <li>Диагностика сбоев передачи данных, настройка абонентского оборудования, мониторинг каналов связи.</li>
-            <li>Обработка эскалаций в HelpDesk-системе, выездная и удалённая поддержка ключевых офисов.</li>
-          </ul>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-header">
-            <div>
-              <div class="timeline-role">Специалист службы технической поддержки</div>
-              <div class="timeline-company">ЗАО «РТС Телеком»</div>
-            </div>
-            <div class="timeline-date">Февраль 2006 — Декабрь 2007 (1 год 11 месяцев)</div>
+        <div class="stack-card">
+          <h3>Управление и регламенты</h3>
+          <div class="tags-container">
+            <span class="tag">Кадровый резерв РЖД</span>
+            <span class="tag">Замещение руководства</span>
+            <span class="tag">Разработка регламентов и инструкций</span>
+            <span class="tag">Обучение и наставничество</span>
+            <span class="tag">Английский (B1)</span>
           </div>
-          <ul class="timeline-bullets">
-            <li>Первая и вторая линии поддержки корпоративных абонентов широкополосного доступа и телефонии.</li>
-            <li>Консультирование пользователей, регистрация заявок, первичная маршрутизация инцидентов.</li>
-          </ul>
         </div>
       </div>
     </section>
@@ -709,105 +807,155 @@
     <!-- Образование и курсы -->
     <section class="section">
       <h2 class="section-title">Образование и сертификаты</h2>
-      <p class="section-subtitle">Базовое инженерное образование и регулярное повышение квалификации</p>
-      <div class="edu-card">
-        <div class="edu-title">Московский государственный университет путей сообщения (МИИТ)</div>
-        <div class="edu-meta">Инженер по специальности «Управление и информатика в технических системах» · 2005</div>
+      <div class="section-subtitle">Базовое профильное образование и непрерывное повышение квалификации</div>
+
+      <div class="edu-grid">
+        <div class="edu-card">
+          <h3>Высшее образование</h3>
+          <div class="edu-org">Московский технический университет связи и информатики (МТУСИ)</div>
+          <div class="edu-year">2006 год выпуска</div>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Специальность: Радиотехника, микроволновая техника</p>
+        </div>
+
+        <div class="edu-card">
+          <h3>Среднее специальное</h3>
+          <div class="edu-org">Московский техникум информатики и вычислительной техники</div>
+          <div class="edu-year">2001 год выпуска</div>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Автоматизированные системы обработки информации и управления</p>
+        </div>
       </div>
-      <div class="edu-card">
-        <div class="edu-title">Повышение квалификации: Администрирование SAP ERP & Криптографическая защита</div>
-        <div class="edu-meta">Корпоративный университет ОАО «РЖД» · Регулярные аттестации (2018–2024)</div>
+
+      <div class="edu-card" style="margin-top: 1rem;">
+        <h3 style="margin-bottom: 0.75rem;">Курсы повышения квалификации</h3>
+        <ul class="courses-list">
+          <li>
+            <span>Microsoft Excel. Уровень 3: Анализ и визуализация данных</span>
+            <span class="course-year">2023</span>
+          </li>
+          <li>
+            <span>Microsoft Excel. Уровень 1: Работа с электронными таблицами</span>
+            <span class="course-year">2022</span>
+          </li>
+          <li>
+            <span>Основы критического мышления — Корпоративный университет РЖД</span>
+            <span class="course-year">2022</span>
+          </li>
+          <li>
+            <span>Цифровая трансформация в экономике — Российский университет транспорта (РУТ МИИТ)</span>
+            <span class="course-year">2022</span>
+          </li>
+          <li>
+            <span>Cisco Certified Network Associate (CCNA)</span>
+            <span class="course-year">2013</span>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <!-- Контакты внизу -->
-    <section class="contacts-box" id="contacts">
-      <h2>Связаться со мной</h2>
-      <p class="contacts-subtitle">Готов обсудить вакансии ведущего инженера, специалиста 2–3 линии или координатора поддержки</p>
+    <!-- Контактный блок -->
+    <section class="section">
+      <div class="contact-card">
+        <h2>Связаться со мной</h2>
+        <p class="contact-desc">
+          Готов обсудить предложения о работе, задачи вашей команды и условия сотрудничества. Отвечаю оперативно в Telegram и по телефону.
+        </p>
 
-      <div class="contacts-buttons">
-        <a class="btn btn-primary" href="https://t.me/Chuga_28" target="_blank" rel="noopener">
-          ✈️ Telegram: @Chuga_28
-        </a>
-        <button class="btn btn-secondary" onclick="copyPhone('+79263573495')">
-          📞 +7 (926) 357-34-95
-        </button>
-        <a class="btn btn-secondary" href="mailto:skosta_m@mail.ru">
-          ✉️ skosta_m@mail.ru
-        </a>
+        <div class="contact-buttons">
+          <a href="https://t.me/Chuga_28" target="_blank" rel="noopener noreferrer" class="btn btn-telegram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+            Telegram: @Chuga_28
+          </a>
+          <button onclick="copyPhone()" class="btn btn-outline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            +7 (926) 357-34-95
+          </button>
+          <a href="mailto:skosta_m@mail.ru" class="btn btn-outline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            skosta_m@mail.ru
+          </a>
+          <a href="https://chugrin.lovable.app/__l5e/assets-v1/5efe2d8c-60b2-481d-9c15-0668f0806ad2/konstantin-chugrin-resume.pdf" target="_blank" class="btn btn-primary" download>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            Скачать резюме (PDF)
+          </a>
+        </div>
+
+        <div class="contact-location">
+          📍 Москва · Любой формат работы: офис, гибрид или удалённо
+        </div>
       </div>
-
-      <div style="margin-top: 1rem;">
-        <a class="btn btn-secondary" href="https://chugrin.lovable.app/assets/resume.pdf" download="konstantin-chugrin-resume.pdf">
-          📥 Скачать полное резюме (PDF)
-        </a>
-      </div>
-
-      <p class="location-note">
-        📍 Москва · Любой формат: офис, гибрид или удалённо
-      </p>
     </section>
+
   </main>
 
+  <!-- Подвал -->
   <footer>
     <div class="container">
-      © 2026 Константин Чугрин · Персональный сайт-визитка
+      <p>© 2026 Чугрин Константин Александрович. Резюме ведущего специалиста технической поддержки.</p>
     </div>
   </footer>
 
-  <div class="copy-toast" id="toast">Телефон скопирован в буфер!</div>
+  <!-- Всплывающее уведомление (Toast) -->
+  <div class="toast" id="toast">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    <span>Номер +7 (926) 357-34-95 скопирован</span>
+  </div>
 
   <script>
-    // Тема (светлая/тёмная)
-    function initTheme() {
-      const savedTheme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        document.documentElement.classList.add('dark');
-        updateThemeBtn(true);
+    // Инициализация темы: по умолчанию тёмная
+    (function initTheme() {
+      const savedTheme = localStorage.getItem("theme");
+      const isDark = savedTheme ? savedTheme === "dark" : true;
+      applyTheme(isDark);
+    })();
+
+    function applyTheme(isDark) {
+      const html = document.documentElement;
+      const icon = document.getElementById("theme-icon");
+      const text = document.getElementById("theme-text");
+
+      if (isDark) {
+        html.classList.add("dark");
+        if (icon) icon.textContent = "☀️";
+        if (text) text.textContent = "Светлая тема";
       } else {
-        document.documentElement.classList.remove('dark');
-        updateThemeBtn(false);
+        html.classList.remove("dark");
+        if (icon) icon.textContent = "🌙";
+        if (text) text.textContent = "Тёмная тема";
       }
     }
 
     function toggleTheme() {
-      const isDark = document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      updateThemeBtn(isDark);
-    }
-
-    function updateThemeBtn(isDark) {
-      document.getElementById('themeIcon').textContent = isDark ? '☀️' : '🌙';
-      document.getElementById('themeLabel').textContent = isDark ? 'Светлая тема' : 'Тёмная тема';
+      const html = document.documentElement;
+      const isDarkNow = html.classList.contains("dark");
+      const nextDark = !isDarkNow;
+      localStorage.setItem("theme", nextDark ? "dark" : "light");
+      applyTheme(nextDark);
     }
 
     // Копирование телефона
-    function copyPhone(phone) {
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(phone);
+    function copyPhone() {
+      const phone = "+79263573495";
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(phone).then(showToast);
       } else {
-        const ta = document.createElement('textarea');
-        ta.value = phone;
-        ta.style.position = 'fixed';
-        ta.style.opacity = '0';
-        document.body.appendChild(ta);
-        ta.focus();
-        ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
+        const input = document.createElement("input");
+        input.value = phone;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand("copy");
+        document.body.removeChild(input);
+        showToast();
       }
-      showToast('Телефон скопирован: ' + phone);
     }
 
-    function showToast(msg) {
-      const toast = document.getElementById('toast');
-      toast.textContent = msg;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2500);
+    function showToast() {
+      const toast = document.getElementById("toast");
+      if (!toast) return;
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2500);
     }
-
-    initTheme();
   </script>
 </body>
 </html>
